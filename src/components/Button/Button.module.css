@@ -1,0 +1,30 @@
+.button {
+    color: #ffffff;
+    background-color: #727379;
+    border-radius: 6px;
+    border: none;
+    padding: .8em 4.25em;
+    font-family: "Avenir", 'sans-serif';
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0.54px;
+    line-height: 19px;
+    text-align: center;
+    margin: 1em;
+}
+
+.button--primary {
+    background-color: #007BCE;
+}
+
+.button--inactive {
+    background-color: #727379;
+}
+
+.button--green {
+    background-color: #60CF8C;
+}
+
+.button--red {
+    background-color: #C34A3E;
+}

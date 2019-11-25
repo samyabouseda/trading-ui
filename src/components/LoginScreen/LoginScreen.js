@@ -41,7 +41,7 @@ class LoginScreen extends Component {
 								label="password"
 								type="password"
 							/>
-							<Button>
+							<Button color="primary">
 								{isSignup
 									? 'Create account'
 									: 'Login'}

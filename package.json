@@ -36,9 +36,7 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^5.2.4",
-    "@storybook/addon-links": "^5.2.4",
-    "@storybook/addons": "^5.2.4",
-    "@storybook/react": "^5.2.4"
-  }
+    "prettier": "^1.19.1"
+  },
+  "husky": { "hooks": { "pre-commit": "pretty-quick --staged" } }
 }

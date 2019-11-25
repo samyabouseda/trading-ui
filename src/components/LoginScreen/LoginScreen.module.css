@@ -2,3 +2,32 @@
     max-width: 450px;
     margin: auto;
 }
+
+.title {
+    color: #73747A;
+    font-size: .8em;
+    font-weight: 700;
+    text-align: left;
+    margin-top: 0;
+}
+
+.guidelines {
+    color: #ffffff;
+    font-size: .8em;
+    font-weight: 700;
+    text-align: left;
+    margin-top: 2em;
+    margin-bottom: .5em;
+}
+
+.link {
+    color: #007BCE;
+    font-size: .8em;
+    font-weight: 500;
+    text-align: left;
+    text-decoration: underline;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-top: 0;
+}

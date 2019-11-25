@@ -18,17 +18,22 @@ class LoginScreen extends Component {
 			<div className={styles['login-screen']}>
 				<Card>
 					<div>
-						<p>{isSignup ? 'SIGNUP' : 'LOGIN'}</p>
-						<p>
+						<p className={styles.title}>
+							{isSignup ? 'SIGNUP' : 'LOGIN'}
+						</p>
+						<p className={styles.guidelines}>
 							Fill in the form to{' '}
 							{isSignup ? 'create' : 'access'} your
 							account.
 						</p>
-						<button onClick={this.toggleSignupLoginView}>
+						<p
+							className={styles.link}
+							onClick={this.toggleSignupLoginView}
+						>
 							{isSignup
 								? 'Already registered?'
 								: "Don't have an account yet?"}
-						</button>
+						</p>
 						<form>
 							<Input
 								name="username"

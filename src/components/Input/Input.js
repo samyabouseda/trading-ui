@@ -1,14 +1,18 @@
 import React from 'react'
+import styles from './Input.module.css'
 
 const Input = ({ name, testid, type, placeholder, label, value }) => (
-	<fieldset>
-		<label htmlFor={name}>{label}</label>
+	<fieldset className={styles.fieldset}>
+		<label className={styles.label} htmlFor={name}>
+			{label}
+		</label>
 		<input
 			name={name}
 			type={type}
 			value={value}
 			placeholder={placeholder}
 			data-testid={testid}
+			className={styles.input}
 		/>
 	</fieldset>
 )

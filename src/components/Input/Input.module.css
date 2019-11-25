@@ -1,0 +1,27 @@
+.fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 1em 0;
+}
+
+.label {
+    color: #74757B;
+    font-weight: 400;
+    font-size: .8em;
+    text-align: left;
+    text-transform: capitalize;
+    padding: .5em 0;
+}
+
+.input {
+    border: none;
+    border-radius: 6px;
+    background-color: #5A5A6C;
+    color: #ffffff;
+    font-weight: 900;
+    padding: 1.25em 1em;
+    font-size: .825em;
+}
+

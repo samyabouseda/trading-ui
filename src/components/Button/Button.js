@@ -1,16 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-const Button = ({ onClick, children }) => {
-    return (
-        <button type={'button'} onClick={onClick}>
-            {children}
-        </button>
-    )
-}
-
-Button.propTypes = {
-    children: PropTypes.string.isRequired,
-}
+const Button = ({ name, testid, onClick, children }) => (
+	<button name={name} data-testid={testid} onClick={onClick}>
+		{children}
+	</button>
+)
 
 export default Button

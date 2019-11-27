@@ -8,13 +8,13 @@
 
 const sel = testid => `[data-testid="${testid}"]`
 const ROUTES = {
-	SIGNUP: `http://localhost:3000/`,
+	SIGNUP: `http://localhost:3000/signup`,
 }
 
 describe('Scénario : Un nouveau trader s’enregistre sur la plateforme', async () => {
 	it('ETANT DONEE que le trader se trouve sur la page de création de compte', async () => {
 		await page.goto(ROUTES.SIGNUP)
-		await page.waitForSelector(sel('login-screen'))
+		await page.waitForSelector(sel('signup-screen'))
 	})
 
 	it('LORSQUE le trader remplis les champs « username » et « password » avec ses informations', async () => {

@@ -1,6 +1,6 @@
 // The file for a custom puppeteer config, learn more:
 // https://github.com/smooth-code/jest-puppeteer#configure-puppeteer
-const config = require('../../config')
+const config = require('../../../config')
 
 module.exports = {
 	launch: {

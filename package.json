@@ -18,7 +18,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:e2e": "jest -c src/e2e/jest.config.js --verbose --watch",
+    "test:e2e": "jest -c src/tests/e2e/jest.config.js --verbose --watch",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"

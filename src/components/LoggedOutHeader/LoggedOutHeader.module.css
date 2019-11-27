@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5em;
+}
+
+.title {
+    margin-top: 1.5em;
+    margin-bottom: 0;
+    font-family: "Avenir", "sans-serif";
+    font-weight: 900;
+    font-size: 4em;
+    color: white;
+}
+
+.catch-phrase {
+    color: #74757B;
+    font-size: 1.75em;
+    margin: auto;
+}

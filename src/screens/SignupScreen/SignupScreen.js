@@ -7,46 +7,54 @@ import Input from '../../components/Input'
 import Button from '../../components/Button'
 import LoggedOutHeader from '../../components/LoggedOutHeader'
 
-const SignupScreen = props => (
+const SignupScreen = ({ message, onSubmit }) => (
 	<div className={styles['signup-screen']}>
+		{console.log(message)}
 		<LoggedOutHeader />
 		<div
 			className={styles['login-screen']}
 			data-testid="signup-screen"
 		>
 			<Card>
-				<SignupForm />
+				<SignupForm onSubmit={onSubmit} />
 			</Card>
 		</div>
 	</div>
 )
 
-const SignupForm = () => (
-	<div>
-		<p className={styles.title}>SIGNUP</p>
-		<p className={styles.guidelines}>
-			Fill in the form to create your account.
-		</p>
-		<Link to="/login">
-			<p className={styles.link}>Already registered?</p>
-		</Link>
-		<form data-testid="signup-form">
-			<Input
-				name="username"
-				label="username"
-				type="text"
-				placeholder="John"
-			/>
-			<Input
-				name="password"
-				label="password"
-				type="password"
-				placeholder="Password"
-			/>
-			<Button color="primary">Create account</Button>
-		</form>
-	</div>
-)
+const SignupForm = ({ onSubmit }) => {
+	const handleSubmit = event => {
+		event.preventDefault()
+		// TODO: Pass real form data instead of dummy values.
+		onSubmit('bob', 'this is a password')
+	}
+	return (
+		<div>
+			<p className={styles.title}>SIGNUP</p>
+			<p className={styles.guidelines}>
+				Fill in the form to create your account.
+			</p>
+			<Link to="/login">
+				<p className={styles.link}>Already registered?</p>
+			</Link>
+			<form data-testid="signup-form" onSubmit={handleSubmit}>
+				<Input
+					name="username"
+					label="username"
+					type="text"
+					placeholder="John"
+				/>
+				<Input
+					name="password"
+					label="password"
+					type="password"
+					placeholder="Password"
+				/>
+				<Button color="primary">Create account</Button>
+			</form>
+		</div>
+	)
+}
 
 // SignupScreen.propTypes = {}
 

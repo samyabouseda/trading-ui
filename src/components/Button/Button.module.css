@@ -10,6 +10,7 @@
     line-height: 19px;
     text-align: center;
     margin: 1em;
+    cursor: pointer;
 }
 
 .button--primary {

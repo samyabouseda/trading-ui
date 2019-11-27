@@ -23,7 +23,13 @@
     "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "globals": {
+      "page": true,
+      "browser": true,
+      "context": true,
+      "jest-puppeteer": true
+    }
   },
   "browserslist": {
     "production": [

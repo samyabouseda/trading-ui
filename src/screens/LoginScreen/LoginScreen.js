@@ -1,6 +1,6 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { HashLink as Link } from 'react-router-hash-link'
 import styles from './LoginScreen.module.css'
 import Card from '../../components/Card'
 import Input from '../../components/Input'

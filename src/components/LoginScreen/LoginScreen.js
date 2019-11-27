@@ -39,12 +39,13 @@ class LoginScreen extends Component {
 								name="username"
 								label="username"
 								type="text"
-								placeholder="Bob"
+								placeholder="John"
 							/>
 							<Input
 								name="password"
 								label="password"
 								type="password"
+								placeholder="Password"
 							/>
 							<Button color="primary">
 								{isSignup

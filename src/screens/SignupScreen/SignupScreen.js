@@ -25,8 +25,9 @@ const SignupScreen = ({ onSubmit }) => (
 const SignupForm = ({ onSubmit }) => {
 	const handleSubmit = event => {
 		event.preventDefault()
-		// TODO: Pass real form data instead of dummy values.
-		onSubmit('bob', 'this is a password')
+		const username = event.target.elements.username.value
+		const password = event.target.elements.username.value
+		onSubmit(username, password)
 	}
 	return (
 		<div>
@@ -50,7 +51,9 @@ const SignupForm = ({ onSubmit }) => {
 					type="password"
 					placeholder="Password"
 				/>
-				<Button color="primary">Create account</Button>
+				<Button type="submit" color="primary">
+					Create account
+				</Button>
 			</form>
 		</div>
 	)

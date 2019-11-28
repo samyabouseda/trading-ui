@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import SignupScreen from '../screens/SignupScreen'
-import { doUserSignupRequest } from '../actions'
+import { doUserSignupFailure, doUserSignupRequest } from '../actions'
 
 const getErrorMessage = state => state.user.errorMessage
 
@@ -9,8 +9,18 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-	onSubmit: (username, password) =>
-		dispatch(doUserSignupRequest(username, password)),
+	onSubmit: (username, password) => {
+		if (username !== '' && password !== '') {
+			dispatch(doUserSignupRequest(username, password))
+		} else {
+			dispatch(
+				doUserSignupFailure({
+					message:
+						'You must provide a username and a password',
+				}),
+			)
+		}
+	},
 })
 
 export default connect(

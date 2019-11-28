@@ -1,0 +1,21 @@
+.dialog-background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(88,91,107, .8);
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+
+.dialog-container {
+    position: absolute;
+    max-width: 550px;
+    z-index: 3;
+    left: 0;
+    right: 0;
+
+    top: 50%;
+    transform: translateY(-50%);
+    margin: auto;
+}

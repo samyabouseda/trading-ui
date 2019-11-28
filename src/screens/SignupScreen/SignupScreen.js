@@ -6,10 +6,10 @@ import Card from '../../components/Card'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
 import LoggedOutHeader from '../../components/LoggedOutHeader'
+import Screen from '../Screen'
 
-const SignupScreen = ({ message, onSubmit }) => (
-	<div className={styles['signup-screen']}>
-		{console.log(message)}
+const SignupScreen = ({ onSubmit }) => (
+	<Screen>
 		<LoggedOutHeader />
 		<div
 			className={styles['login-screen']}
@@ -19,7 +19,7 @@ const SignupScreen = ({ message, onSubmit }) => (
 				<SignupForm onSubmit={onSubmit} />
 			</Card>
 		</div>
-	</div>
+	</Screen>
 )
 
 const SignupForm = ({ onSubmit }) => {

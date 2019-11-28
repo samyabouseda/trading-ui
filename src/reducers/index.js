@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux'
-import userReducer from './user-reducer'
+import user from './user'
+import errorMessage from './errorMessage'
 
 const rootReducer = combineReducers({
-	userReducer,
+	user,
+	errorMessage,
 })
 
 export default rootReducer
+
+export { getErrorMessage } from './errorMessage'

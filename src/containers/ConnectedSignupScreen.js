@@ -1,15 +1,16 @@
 import { connect } from 'react-redux'
 import SignupScreen from '../screens/SignupScreen'
-import { doUserSignupRequested } from '../actions'
+import { doUserSignupRequest } from '../actions'
+
+const getErrorMessage = state => state.user.errorMessage
 
 const mapStateToProps = state => ({
-	// TODO: fix state shape -> remove the extra userReducer
-	message: state.userReducer.signupFailedMessage, //.signupFailedMessage,
+	errorMessage: getErrorMessage(state),
 })
 
 const mapDispatchToProps = dispatch => ({
 	onSubmit: (username, password) =>
-		dispatch(doUserSignupRequested(username, password)),
+		dispatch(doUserSignupRequest(username, password)),
 })
 
 export default connect(

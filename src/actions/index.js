@@ -1,23 +1,28 @@
 import { ActionTypes } from '../constants'
 
-const doUserSignupRequested = (username, password) => ({
-	type: ActionTypes.USER_SIGNUP_REQUESTED,
+const doUserSignupRequest = (username, password) => ({
+	type: ActionTypes.USER_SIGNUP_REQUEST,
 	username,
 	password,
 })
 
-const doUserSignupSucceeded = result => ({
-	type: ActionTypes.USER_SIGNUP_SUCCEEDED,
-	result,
+const doUserSignupSuccess = response => ({
+	type: ActionTypes.USER_SIGNUP_SUCCESS,
+	response,
 })
 
-const doUserSignupFailed = error => ({
-	type: ActionTypes.USER_SIGNUP_FAILED,
-	error,
+const doUserSignupFailure = error => ({
+	type: ActionTypes.USER_SIGNUP_FAILURE,
+	errorMessage: error.message || 'Something went wrong.',
+})
+
+const doCloseErrorWindow = () => ({
+	type: ActionTypes.ERROR_POPUP_CLOSE,
 })
 
 export {
-	doUserSignupRequested,
-	doUserSignupSucceeded,
-	doUserSignupFailed,
+	doUserSignupRequest,
+	doUserSignupSuccess,
+	doUserSignupFailure,
+	doCloseErrorWindow,
 }

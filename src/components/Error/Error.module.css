@@ -1,0 +1,17 @@
+.icon {
+    margin-top: 1em;
+    height: 4em;
+}
+
+.title {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.message {
+    font-size: 1em;
+    font-weight: 600;
+    color: #73747A;
+    margin-bottom: 2em;
+}

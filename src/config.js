@@ -28,4 +28,4 @@ const config = {
 	production,
 }
 
-module.exports = { ...base, ...config[env] }
+export default { ...base, ...config[env] }

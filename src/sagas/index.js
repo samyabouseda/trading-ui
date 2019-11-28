@@ -1,6 +1,7 @@
 import { takeEvery, all, call, put } from 'redux-saga/effects'
 import { ActionTypes } from '../constants'
 import { doUserSignupSuccess, doUserSignupFailure } from '../actions'
+import API from '../api'
 
 function* watchAll() {
 	yield all([
@@ -8,10 +9,14 @@ function* watchAll() {
 	])
 }
 
-function* requestUserSignup() {
+function* requestUserSignup(action) {
 	try {
-		const result = yield call()
-		yield put(doUserSignupSuccess(result))
+		const account = {
+			username: action.username,
+			password: action.password,
+		}
+		const response = yield call(API.accounts.create, account)
+		yield put(doUserSignupSuccess(response))
 	} catch (error) {
 		yield put(doUserSignupFailure(error))
 	}

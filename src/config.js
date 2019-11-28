@@ -10,7 +10,7 @@ const base = {
 const development = {
 	configId: 'development',
 	services: {
-		EXCHANGE_API_URL: 'http://127.0.0.1:80',
+		EXCHANGE_API_URL: 'http://127.0.0.1:8081',
 	},
 }
 

@@ -26,7 +26,7 @@ const SignupForm = ({ onSubmit }) => {
 	const handleSubmit = event => {
 		event.preventDefault()
 		const username = event.target.elements.username.value
-		const password = event.target.elements.username.value
+		const password = event.target.elements.password.value
 		onSubmit(username, password)
 	}
 	return (

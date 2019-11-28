@@ -3,7 +3,7 @@
  	ETANT DONEE que le trader se trouve sur la page de création de compte
  	LORSQUE le trader remplis les champs « username » et « password » avec ses informations
  	ET click sur le bouton « Create account »
- 	ALORS il doit voir un errorMessage de confirmation avec son username et sa clé privée
+ 	ALORS il doit voir un message de confirmation avec son username et sa clé privée
 */
 
 const sel = testid => `[data-testid="${testid}"]`
@@ -32,7 +32,7 @@ describe('Scénario : Un nouveau trader s’enregistre sur la plateforme', async
 	})
 
 	it('ALORS il doit voir un errorMessage de confirmation avec son username et sa clé privée', async () => {
-		await page.waitForSelector(sel('signup-success-errorMessage'))
+		await page.waitForSelector(sel('signup-success-message'))
 		await page.waitForSelector(sel('username-field'))
 		await page.waitForSelector(sel('private-key-field'))
 	})

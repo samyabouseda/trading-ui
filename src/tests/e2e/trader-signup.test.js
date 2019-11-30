@@ -33,6 +33,7 @@ describe('Scénario : Un nouveau trader s’enregistre sur la plateforme', async
 
 	it('ALORS il doit voir un errorMessage de confirmation avec son username et sa clé privée', async () => {
 		await page.waitForSelector(sel('signup-success-message'))
+		// Your account has been created successfully!
 		await page.waitForSelector(sel('username-field'))
 		await page.waitForSelector(sel('private-key-field'))
 	})

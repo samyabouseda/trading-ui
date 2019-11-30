@@ -9,6 +9,7 @@ const doUserSignupRequest = (username, password) => ({
 const doUserSignupSuccess = response => ({
 	type: ActionTypes.USER_SIGNUP_SUCCESS,
 	response,
+	successMessage: 'Your account has been created successfully!',
 })
 
 const doUserSignupFailure = error => ({

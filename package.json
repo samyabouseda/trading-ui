@@ -6,6 +6,7 @@
     "axios": "^0.19.0",
     "dotenv": "^8.2.0",
     "expect-puppeteer": "^4.3.0",
+    "http-status-codes": "^1.4.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-redux": "^7.1.1",

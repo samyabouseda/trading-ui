@@ -1,9 +1,10 @@
 import { ActionTypes } from '../constants'
 
 const INITIAL_STATE = {
-	address: null,
 	username: null,
+	address: null,
 	privateKey: null,
+	successMessage: null,
 }
 
 const user = (state = INITIAL_STATE, action) => {
@@ -17,12 +18,15 @@ const user = (state = INITIAL_STATE, action) => {
 	}
 }
 
-const applyUserSignupSucceeded = (state, action) => ({
-	...state,
-})
+const applyUserSignupSucceeded = (state, action) => {
+	const { data } = action.response
+	return {
+		...state,
+		data,
+		successMessage: action.successMessage,
+	}
+}
 
-const applyUserSignupFailed = (state, action) => ({
-	...state,
-})
+const applyUserSignupFailed = (state, action) => ({ ...state })
 
 export default user

@@ -1,4 +1,5 @@
 import { takeEvery, all, call, put } from 'redux-saga/effects'
+import { CREATED } from 'http-status-codes'
 import { ActionTypes } from '../constants'
 import { doUserSignupSuccess, doUserSignupFailure } from '../actions'
 import API from '../api'

@@ -23,10 +23,8 @@ const Dialog = ({ dismiss, testid, children }) => {
 	)
 }
 
-// const mapDispatchToProps = dispatch => ({
-// 	dismiss: () => dispatch(doCloseErrorWindow()),
-// })
+const mapDispatchToProps = dispatch => ({
+	dismiss: () => dispatch(doCloseErrorWindow()),
+})
 
-// export default connect(null, mapDispatchToProps)(Dialog)
-
-export default Dialog
+export default connect(null, mapDispatchToProps)(Dialog)

@@ -1,10 +1,9 @@
 import React from 'react'
 import Dialog from '../Dialog'
-import Button from '../Button'
 import warningIcon from './warning-icon.png'
 import styles from './Error.module.css'
 
-const Error = ({ message, dismiss }) => (
+const ErrorDialog = ({ message }) => (
 	<Dialog>
 		<div>
 			<img
@@ -14,11 +13,8 @@ const Error = ({ message, dismiss }) => (
 			/>
 			<p className={styles.title}>Something went wrong.</p>
 			<p className={styles.message}>{message}</p>
-			<Button color="primary" onClick={dismiss}>
-				{'Dismiss'}
-			</Button>
 		</div>
 	</Dialog>
 )
 
-export default Error
+export default ErrorDialog

@@ -1,14 +1,15 @@
 import { connect } from 'react-redux'
 import SignupScreen from '../screens/SignupScreen'
+import { doUserSignupFailure, doUserSignupRequest } from '../actions'
 import {
-	doCloseErrorWindow,
-	doUserSignupFailure,
-	doUserSignupRequest,
-} from '../actions'
-import { getSuccessMessage, getUser } from '../reducers'
+	getErrorMessage,
+	getSuccessMessage,
+	getUser,
+} from '../reducers'
 
 const mapStateToProps = state => ({
 	successMessage: getSuccessMessage(state),
+	errorMessage: getErrorMessage(state),
 	user: getUser(state),
 })
 
@@ -25,7 +26,6 @@ const mapDispatchToProps = dispatch => ({
 			)
 		}
 	},
-	dismiss: () => dispatch(doCloseErrorWindow()),
 })
 
 export default connect(

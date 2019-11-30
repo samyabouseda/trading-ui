@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Dialog.module.css'
 import Card from '../Card'
 import Button from '../Button'
-import { doCloseErrorWindow } from '../../actions'
+import { doDialogClose } from '../../actions'
 import { connect } from 'react-redux'
 
 const Dialog = ({ dismiss, testid, children }) => {
@@ -24,7 +24,7 @@ const Dialog = ({ dismiss, testid, children }) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-	dismiss: () => dispatch(doCloseErrorWindow()),
+	dismiss: () => dispatch(doDialogClose()),
 })
 
 export default connect(null, mapDispatchToProps)(Dialog)

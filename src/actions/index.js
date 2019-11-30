@@ -17,13 +17,13 @@ const doUserSignupFailure = error => ({
 	errorMessage: error.message || 'Something went wrong.',
 })
 
-const doCloseErrorWindow = () => ({
-	type: ActionTypes.ERROR_POPUP_CLOSE,
+const doDialogClose = () => ({
+	type: ActionTypes.DIALOG_CLOSING,
 })
 
 export {
 	doUserSignupRequest,
 	doUserSignupSuccess,
 	doUserSignupFailure,
-	doCloseErrorWindow,
+	doDialogClose,
 }

@@ -13,7 +13,7 @@ const user = (state = INITIAL_STATE, action) => {
 			return applyUserSignupSucceeded(state, action)
 		case ActionTypes.USER_SIGNUP_FAILURE:
 			return applyUserSignupFailed(state, action)
-		case ActionTypes.ERROR_POPUP_CLOSE:
+		case ActionTypes.DIALOG_CLOSING:
 			return { ...state, successMessage: null }
 		default:
 			return state

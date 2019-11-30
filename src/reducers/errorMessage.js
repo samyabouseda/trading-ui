@@ -4,7 +4,7 @@ const errorMessage = (state = null, action) => {
 	switch (action.type) {
 		case ActionTypes.USER_SIGNUP_FAILURE:
 			return applyUserSignupFailure(state, action)
-		case ActionTypes.ERROR_POPUP_CLOSE:
+		case ActionTypes.DIALOG_CLOSING:
 			return null
 		default:
 			return state

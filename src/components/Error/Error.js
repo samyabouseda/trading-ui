@@ -4,7 +4,7 @@ import Button from '../Button'
 import warningIcon from './warning-icon.png'
 import styles from './Error.module.css'
 
-const Error = ({ message, buttonText, dismiss }) => (
+const Error = ({ message, dismiss }) => (
 	<Dialog>
 		<div>
 			<img

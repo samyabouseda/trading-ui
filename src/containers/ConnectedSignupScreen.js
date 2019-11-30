@@ -1,9 +1,19 @@
 import { connect } from 'react-redux'
 import SignupScreen from '../screens/SignupScreen'
-import { doUserSignupFailure, doUserSignupRequest } from '../actions'
+import {
+	doCloseErrorWindow,
+	doUserSignupFailure,
+	doUserSignupRequest,
+} from '../actions'
+import { getSuccessMessage, getUser } from '../reducers'
+
+const mapStateToProps = state => ({
+	successMessage: getSuccessMessage(state),
+	user: getUser(state),
+})
 
 const mapDispatchToProps = dispatch => ({
-	onSubmit: (username, password) => {
+	onSubmit: ({ username, password }) => {
 		if (username !== '' && password !== '') {
 			dispatch(doUserSignupRequest(username, password))
 		} else {
@@ -15,6 +25,10 @@ const mapDispatchToProps = dispatch => ({
 			)
 		}
 	},
+	dismiss: () => dispatch(doCloseErrorWindow()),
 })
 
-export default connect(null, mapDispatchToProps)(SignupScreen)
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps,
+)(SignupScreen)

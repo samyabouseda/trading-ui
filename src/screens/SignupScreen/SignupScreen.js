@@ -7,53 +7,94 @@ import Input from '../../components/Input'
 import Button from '../../components/Button'
 import LoggedOutHeader from '../../components/LoggedOutHeader'
 import Screen from '../Screen'
+import Dialog from '../../components/Dialog'
 
-const SignupScreen = ({ onSubmit }) => (
+const SignupScreen = ({
+	successMessage,
+	user,
+	dismiss,
+	onSubmit,
+}) => (
 	<Screen>
+		{successMessage && (
+			<Dialog
+				dismiss={dismiss}
+				data-testid="signup-success-dialog"
+			>
+				<p data-testid="signup-success-message">
+					{successMessage}
+				</p>
+				<Input
+					testid="user-address-field"
+					name="user-address"
+					label="Address"
+					type="text"
+					value={user.address}
+				/>
+				<Input
+					testid="user-private-key-field"
+					name="user-private-key"
+					label="Private key"
+					type="text"
+					value={user.privateKey}
+				/>
+			</Dialog>
+		)}
 		<LoggedOutHeader />
 		<div
 			className={styles['login-screen']}
 			data-testid="signup-screen"
 		>
 			<Card>
-				<SignupForm onSubmit={onSubmit} />
+				<p className={styles.title}>SIGNUP</p>
+				<p className={styles.guidelines}>
+					Fill in the form to create your account.
+				</p>
+				<Link to="/login">
+					<p className={styles.link}>Already registered?</p>
+				</Link>
+				<Form onSubmit={onSubmit}>
+					<Input
+						name="username"
+						label="username"
+						type="text"
+						placeholder="John"
+					/>
+					<Input
+						name="password"
+						label="password"
+						type="password"
+						placeholder="Password"
+					/>
+					<Button type="submit" color="primary">
+						Create account
+					</Button>
+				</Form>
 			</Card>
 		</div>
 	</Screen>
 )
 
-const SignupForm = ({ onSubmit }) => {
+const Form = ({ onSubmit, children }) => {
+	//TODO: refactor handleSubmit
 	const handleSubmit = event => {
 		event.preventDefault()
-		const username = event.target.elements.username.value
-		const password = event.target.elements.password.value
-		onSubmit(username, password)
+		const elements = Object.values(event.target.elements)
+		const inputs = elements.filter(e => e.localName === 'input')
+		const arr = inputs.map(input => ({
+			name: input.name,
+			value: input.value,
+		}))
+		const data = arr.reduce((map, obj) => {
+			map[obj.name] = obj.value
+			return map
+		}, {})
+		onSubmit(data)
 	}
 	return (
 		<div>
-			<p className={styles.title}>SIGNUP</p>
-			<p className={styles.guidelines}>
-				Fill in the form to create your account.
-			</p>
-			<Link to="/login">
-				<p className={styles.link}>Already registered?</p>
-			</Link>
 			<form data-testid="signup-form" onSubmit={handleSubmit}>
-				<Input
-					name="username"
-					label="username"
-					type="text"
-					placeholder="John"
-				/>
-				<Input
-					name="password"
-					label="password"
-					type="password"
-					placeholder="Password"
-				/>
-				<Button type="submit" color="primary">
-					Create account
-				</Button>
+				{children}
 			</form>
 		</div>
 	)

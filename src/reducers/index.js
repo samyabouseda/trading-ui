@@ -10,3 +10,4 @@ const rootReducer = combineReducers({
 export default rootReducer
 
 export { getErrorMessage } from './errorMessage'
+export { getUser, getSuccessMessage } from './user'

@@ -3,12 +3,20 @@ import styles from './Screen.module.css'
 import Error from '../../components/Error'
 import { connect } from 'react-redux'
 import { doCloseErrorWindow } from '../../actions'
-import { getErrorMessage } from '../../reducers'
+import { getErrorMessage, getSuccessMessage } from '../../reducers'
 
-const Screen = ({ errorMessage, dismiss, children }) => (
+const Screen = ({
+	successMessage,
+	errorMessage,
+	dismiss,
+	children,
+}) => (
 	<div className={styles.screen}>
 		{errorMessage && (
 			<Error message={errorMessage} dismiss={dismiss} />
+		)}
+		{successMessage && (
+			<Error message={successMessage} dismiss={dismiss} />
 		)}
 		{children}
 	</div>
@@ -16,6 +24,7 @@ const Screen = ({ errorMessage, dismiss, children }) => (
 
 const mapStateToProps = state => ({
 	errorMessage: getErrorMessage(state),
+	successMessage: getSuccessMessage(state),
 })
 
 const mapDispatchToProps = dispatch => ({

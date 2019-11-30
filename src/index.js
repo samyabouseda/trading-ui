@@ -4,7 +4,7 @@ import * as serviceWorker from './serviceWorker'
 
 import './index.css'
 import store from './store'
-import Root from './components/Root'
+import Root from './components'
 
 ReactDOM.render(
 	<Root store={store} />,

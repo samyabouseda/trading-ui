@@ -2,14 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { HashLink as Link } from 'react-router-hash-link'
 import styles from './SignupScreen.module.css'
-import Card from '../../components/Card'
-import Input from '../../components/Input'
-import Button from '../../components/Button'
-import LoggedOutHeader from '../../components/LoggedOutHeader'
 import Screen from '../Screen'
-import ErrorDialog from '../../components/ErrorDialog'
-import SuccessSignupDialog from '../../components/SuccessSignupDialog'
-import Form from '../../components/Form'
+
+import {
+	Button,
+	Card,
+	Input,
+	Form,
+	LoggedOutHeader,
+	SuccessSignupDialog,
+	ErrorDialog,
+} from '../../components'
 
 const SignupScreen = ({
 	successMessage,

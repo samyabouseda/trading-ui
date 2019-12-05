@@ -14,7 +14,6 @@ const ROUTES = {
 describe('Scénario : Un nouveau trader s’enregistre sur la plateforme', async () => {
 	it('ETANT DONEE que le trader se trouve sur la page de création de compte', async () => {
 		await page.goto(ROUTES.SIGNUP)
-		// // await page.waitForSelector(sel('signup-screen'))
 		await expect(page).toMatchElement(sel('signup-screen'))
 	})
 

@@ -1,5 +1,4 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
 import { HashLink as Link } from 'react-router-hash-link'
 import styles from './LoginScreen.module.css'
 import Card from '../../components/Card'
@@ -7,7 +6,7 @@ import Input from '../../components/Input'
 import Button from '../../components/Button'
 import LoggedOutHeader from '../../components/LoggedOutHeader'
 
-const LoginScreen = props => (
+const LoginScreen = () => (
 	<div className={styles['signup-screen']}>
 		<LoggedOutHeader />
 		<div
@@ -47,7 +46,5 @@ const SignupForm = () => (
 		</form>
 	</div>
 )
-
-// LoginScreen.propTypes = {}
 
 export default LoginScreen

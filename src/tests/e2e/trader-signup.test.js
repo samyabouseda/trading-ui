@@ -14,7 +14,8 @@ const ROUTES = {
 describe('Scénario : Un nouveau trader s’enregistre sur la plateforme', async () => {
 	it('ETANT DONEE que le trader se trouve sur la page de création de compte', async () => {
 		await page.goto(ROUTES.SIGNUP)
-		await page.waitForSelector(sel('signup-screen'))
+		// // await page.waitForSelector(sel('signup-screen'))
+		await expect(page).toMatchElement(sel('signup-screen'))
 	})
 
 	it('LORSQUE le trader remplis les champs « username » et « password » avec ses informations', async () => {
@@ -32,13 +33,18 @@ describe('Scénario : Un nouveau trader s’enregistre sur la plateforme', async
 	})
 
 	it('ALORS il doit voir un message de confirmation avec son username et sa clé privée', async () => {
+		await expect(page).toMatchElement(
+			sel('signup-success-dialog'),
+		)
 		const message = await page.waitForSelector(
 			sel('signup-success-message'),
 		)
 		await expect(message).toMatch(
 			'Your account has been created successfully!',
 		)
-		await page.waitForSelector(sel('user-address-field'))
-		await page.waitForSelector(sel('user-private-key-field'))
+		await expect(page).toMatchElement(sel('user-address-field'))
+		await expect(page).toMatchElement(
+			sel('user-private-key-field'),
+		)
 	})
 })

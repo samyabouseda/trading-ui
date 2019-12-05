@@ -32,14 +32,13 @@ describe('Scénario : Un nouveau trader s’enregistre sur la plateforme', async
 	})
 
 	it('ALORS il doit voir un message de confirmation avec son username et sa clé privée', async () => {
-		// await page.waitForSelector(sel('signup-success-dialog'))
-		// await expect(page).toMatchElement(
-		// 	sel('signup-success-message'),
-		// )
-		// await expect(page).toMatch(
-		// 	'Your account has been created successfully!',
-		// )
-		// await page.waitForSelector(sel('user-address-field'))
-		// await page.waitForSelector(sel('user-private-key-field'))
+		const message = await page.waitForSelector(
+			sel('signup-success-message'),
+		)
+		await expect(message).toMatch(
+			'Your account has been created successfully!',
+		)
+		await page.waitForSelector(sel('user-address-field'))
+		await page.waitForSelector(sel('user-private-key-field'))
 	})
 })

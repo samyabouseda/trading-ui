@@ -1,4 +1,4 @@
-import accounts from './accounts-endpoint'
+import accounts from './accounts'
 
 const API = {
 	accounts,

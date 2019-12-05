@@ -3,7 +3,11 @@ import Input from '../Input'
 import React from 'react'
 
 const SuccessSignupDialog = ({ message, user }) => (
-	<Dialog testid="signup-success-dialog">
+	<Dialog
+		testid="signup-success-dialog"
+		dismissButtonText="I confirm I've copied it somewhere safe"
+		dismissButtonColor="success"
+	>
 		<p data-testid="signup-success-message">{message}</p>
 		<Input
 			testid="user-address-field"

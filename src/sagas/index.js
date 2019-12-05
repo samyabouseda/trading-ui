@@ -6,6 +6,7 @@ import API from '../api'
 function* watchAll() {
 	yield all([
 		takeEvery(ActionTypes.USER_SIGNUP_REQUEST, requestUserSignup),
+		// TODO: Add UserSignupRequest
 	])
 }
 

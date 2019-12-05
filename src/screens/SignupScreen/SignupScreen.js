@@ -30,7 +30,7 @@ const SignupScreen = ({
 		{errorMessage && <ErrorDialog message={errorMessage} />}
 		<LoggedOutHeader />
 		<div
-			className={styles['login-screen']}
+			className={styles['signup-screen']}
 			data-testid="signup-screen"
 		>
 			<Card>

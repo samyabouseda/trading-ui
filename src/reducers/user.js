@@ -5,6 +5,7 @@ const INITIAL_STATE = {
 	address: null,
 	privateKey: null,
 	successMessage: null,
+	balances: [],
 }
 
 const user = (state = INITIAL_STATE, action) => {
@@ -13,8 +14,14 @@ const user = (state = INITIAL_STATE, action) => {
 			return applyUserSignupSucceeded(state, action)
 		case ActionTypes.USER_SIGNUP_FAILURE:
 			return applyUserSignupFailed(state, action)
+		case ActionTypes.USER_LOGIN_REQUEST:
+			return applyUserLoginRequested(state, action)
+		case ActionTypes.USER_LOGIN_SUCCESS:
+			return applyUserLoginSucceded(state, action)
+		case ActionTypes.USER_LOGIN_FAILURE:
+			return applyUserLoginFailed(state, action)
 		case ActionTypes.DIALOG_CLOSING:
-			return { ...state, successMessage: null }
+			return applyDialogClosing(state, action)
 		default:
 			return state
 	}
@@ -34,6 +41,34 @@ const applyUserSignupSucceeded = (state, action) => {
 }
 
 const applyUserSignupFailed = (state, action) => ({ ...state })
+
+const applyUserLoginRequested = (state, action) => ({
+	...state,
+	username: action.username,
+	privateKey: action.privateKey,
+})
+
+const applyUserLoginSucceded = (state, action) => {
+	const {
+		user: { balances, address },
+	} = action.response.data
+	return {
+		...state,
+		address,
+		balances,
+	}
+}
+
+const applyUserLoginFailed = (state, action) => ({
+	...state,
+	username: null,
+	privateKey: null,
+})
+
+const applyDialogClosing = (state, action) => ({
+	...state,
+	successMessage: null,
+})
 
 export const getSuccessMessage = state => state.user.successMessage
 

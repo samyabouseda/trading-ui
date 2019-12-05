@@ -5,8 +5,10 @@ import {
 	Route,
 	Redirect,
 } from 'react-router-dom'
-import { LoginScreen } from '../screens'
-import { ConnectedSignupScreen } from '../containers'
+import {
+	ConnectedLoginScreen,
+	ConnectedSignupScreen,
+} from '../containers'
 
 const Root = ({ store }) => (
 	<Provider store={store}>
@@ -16,7 +18,11 @@ const Root = ({ store }) => (
 				path="/signup"
 				component={ConnectedSignupScreen}
 			/>
-			<Route exact path="/login" component={LoginScreen} />
+			<Route
+				exact
+				path="/login"
+				component={ConnectedLoginScreen}
+			/>
 			<Redirect from="/" exact to="/signup" />
 		</Router>
 	</Provider>

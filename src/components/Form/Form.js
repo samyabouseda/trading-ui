@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Form = ({ onSubmit, children }) => {
+const Form = ({ onSubmit, testid, children }) => {
 	const handleSubmit = event => {
 		event.preventDefault()
 		const elements = Object.values(event.target.elements)
@@ -24,7 +24,7 @@ const Form = ({ onSubmit, children }) => {
 
 	return (
 		<div>
-			<form data-testid="signup-form" onSubmit={handleSubmit}>
+			<form data-testid={testid} onSubmit={handleSubmit}>
 				{children}
 			</form>
 		</div>

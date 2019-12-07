@@ -1,18 +1,19 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import {
-	BrowserRouter as Router,
 	Route,
-	Redirect,
+	// Redirect,
 } from 'react-router-dom'
+import { ConnectedRouter } from 'connected-react-router'
 import {
 	ConnectedLoginScreen,
 	ConnectedSignupScreen,
 } from '../containers'
+import DashboardScreen from '../screens/DashboardScreen'
 
-const Root = ({ store }) => (
+const Root = ({ store, history }) => (
 	<Provider store={store}>
-		<Router>
+		<ConnectedRouter history={history}>
 			<Route
 				exact
 				path="/signup"
@@ -23,8 +24,13 @@ const Root = ({ store }) => (
 				path="/login"
 				component={ConnectedLoginScreen}
 			/>
-			<Redirect from="/" exact to="/signup" />
-		</Router>
+			<Route
+				exact
+				path="/dashboard"
+				component={DashboardScreen}
+			/>
+			{/*<Redirect exact from="/" to="/signup" />*/}
+		</ConnectedRouter>
 	</Provider>
 )
 

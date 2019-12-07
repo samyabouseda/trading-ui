@@ -31,7 +31,7 @@ const LoginScreen = ({ errorMessage, onSubmit }) => (
 						Don't have an account yet?
 					</p>
 				</Link>
-				<Form onSubmit={onSubmit}>
+				<Form onSubmit={onSubmit} testid="login-form">
 					<Input
 						name="username"
 						label="username"

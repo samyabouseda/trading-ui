@@ -41,7 +41,7 @@ const SignupScreen = ({
 				<Link to="/login">
 					<p className={styles.link}>Already registered?</p>
 				</Link>
-				<Form onSubmit={onSubmit}>
+				<Form onSubmit={onSubmit} testid="signup-form">
 					<Input
 						name="username"
 						label="username"

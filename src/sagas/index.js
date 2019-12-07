@@ -1,4 +1,5 @@
 import { takeEvery, all, call, put } from 'redux-saga/effects'
+import { push } from 'connected-react-router'
 import { ActionTypes } from '../constants'
 import {
 	doUserSignupSuccess,
@@ -22,6 +23,7 @@ function* requestUserLogin(action) {
 			action.privateKey,
 		)
 		yield put(doUserLoginSuccess(response))
+		yield put(push('/dashboard'))
 	} catch (error) {
 		yield put(doUserLoginFailure(error))
 	}

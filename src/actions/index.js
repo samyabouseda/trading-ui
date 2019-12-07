@@ -30,6 +30,11 @@ const doUserLoginFailure = error => ({
 	errorMessage: error.message || 'Something went wrong.',
 })
 
+const doUserLoginSuccess = response => ({
+	type: ActionTypes.USER_LOGIN_SUCCESS,
+	response,
+})
+
 // DIALOGS
 const doDialogClose = () => ({
 	type: ActionTypes.DIALOG_CLOSING,
@@ -41,5 +46,6 @@ export {
 	doUserSignupFailure,
 	doUserLoginRequest,
 	doUserLoginFailure,
+	doUserLoginSuccess,
 	doDialogClose,
 }

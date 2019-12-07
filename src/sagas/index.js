@@ -1,13 +1,30 @@
 import { takeEvery, all, call, put } from 'redux-saga/effects'
 import { ActionTypes } from '../constants'
-import { doUserSignupSuccess, doUserSignupFailure } from '../actions'
+import {
+	doUserSignupSuccess,
+	doUserSignupFailure,
+	doUserLoginSuccess,
+	doUserLoginFailure,
+} from '../actions'
 import API from '../api'
 
 function* watchAll() {
 	yield all([
 		takeEvery(ActionTypes.USER_SIGNUP_REQUEST, requestUserSignup),
-		// TODO: Add UserSignupRequest
+		takeEvery(ActionTypes.USER_LOGIN_REQUEST, requestUserLogin),
 	])
+}
+
+function* requestUserLogin(action) {
+	try {
+		const response = yield call(
+			API.accounts.login,
+			action.privateKey,
+		)
+		yield put(doUserLoginSuccess(response))
+	} catch (error) {
+		yield put(doUserLoginFailure(error))
+	}
 }
 
 function* requestUserSignup(action) {

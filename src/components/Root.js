@@ -5,8 +5,8 @@ import { ConnectedRouter } from 'connected-react-router'
 import {
 	ConnectedLoginScreen,
 	ConnectedSignupScreen,
+	ConnectedDashboardScreen,
 } from '../containers'
-import DashboardScreen from '../screens/DashboardScreen'
 
 const Root = ({ store, history }) => (
 	<Provider store={store}>
@@ -25,7 +25,7 @@ const Root = ({ store, history }) => (
 				<Route
 					exact
 					path="/dashboard"
-					component={DashboardScreen}
+					component={ConnectedDashboardScreen}
 				/>
 				<Redirect exact from="/" to="/signup" />
 			</Switch>

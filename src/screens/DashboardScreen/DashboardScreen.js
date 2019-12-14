@@ -1,11 +1,10 @@
 import React from 'react'
 
-const DashboardScreen = props => {
+const DashboardScreen = ({ user }) => {
 	return (
 		<div data-testid="dashboard-screen">
-			<h1 onClick={() => props.history.push('/signup')}>
-				Dashboard
-			</h1>
+			<h1>Dashboard</h1>
+			<h2>Hi, {user.username}</h2>
 		</div>
 	)
 }

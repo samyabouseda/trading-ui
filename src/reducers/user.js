@@ -74,12 +74,13 @@ export const getSuccessMessage = state => state.user.successMessage
 
 export const getUser = state => {
 	const {
-		user: { username, address, privateKey },
+		user: { username, address, privateKey, balances },
 	} = state
 	return {
 		username,
 		address,
 		privateKey,
+		balances,
 	}
 }
 

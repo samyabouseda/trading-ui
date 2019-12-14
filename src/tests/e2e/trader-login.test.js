@@ -1,9 +1,9 @@
 /**
- Scénario : Un trader existant se connect à la plateforme
+ Scénario : Un trader existant se connecte à la plateforme
  	ETANT DONEE que le trader se trouve sur la page de login
- 	LORSQUE le trader remplis les champs "username", "password" et "privateKey"
- 	ET click sur le bouton "Login"
- 	ALORS il doit acceder au tablau de bord
+	LORSQUE le trader remplis les champs "username" et "privateKey"
+	ET click sur le bouton "Login"
+	ALORS il doit accéder à son tableau de bord
  */
 
 const sel = testid => `[data-testid="${testid}"]`

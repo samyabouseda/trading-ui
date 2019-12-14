@@ -16,7 +16,7 @@ let USER = {
 	password: 'thisisapassword',
 	// TODO: Auto generate a new user account before each test.
 	privateKey:
-		'0x3359894b7fd6d87666aca88f6d0977ea71a8748a408186521c274112acba4502',
+		'0xf581a6a329a60ffd07abe34ce920acb3765fd784090b890153fddeb9f33b0316',
 }
 
 describe('Scénario : Un trader existant se connect à la plateforme', async () => {
@@ -40,6 +40,8 @@ describe('Scénario : Un trader existant se connect à la plateforme', async () 
 	})
 
 	it('ALORS il doit acceder au tablau de bord', async () => {
+		// if this test doesn't pass, it may be because the test account
+		// doesn't exist yet. See the todo at the top of the file.
 		await expect(page).toMatchElement(sel('dashboard-screen'))
 	})
 })

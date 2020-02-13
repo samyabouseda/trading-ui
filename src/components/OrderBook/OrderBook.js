@@ -46,12 +46,9 @@ const _renderAsks = asks => (
 )
 
 const _renderSpread = (highestBid, lowestAsk) => (
-	<>
-		<td>Spread</td>
-		<td>{" "}</td>
-		<td>
-			{Math.round((lowestAsk - highestBid) * 100)/100}
-		</td>
-	</>)
+	<div className={styles['spread-container']}>
+		<p className={styles['spread-item']}>Spread</p><p className={styles['spread-item']}>${Math.round((lowestAsk - highestBid) * 100)/100}</p>
+	</div>
+)
 
 export default OrderBook

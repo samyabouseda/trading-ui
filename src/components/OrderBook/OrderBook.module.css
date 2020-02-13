@@ -1,1 +1,19 @@
+.spread-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    border-top: solid 1px #242535;
+    border-bottom: solid 1px #242535;
+}
 
+.spread-item {
+    flex: 1;
+    color: white;
+    font-size: .8em;
+    font-weight: 500;
+}
+
+.spread-item:last-child {
+    text-align: right;
+}

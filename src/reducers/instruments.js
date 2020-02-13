@@ -1,17 +1,14 @@
 import { ActionTypes } from '../constants'
 
 const INITIAL_STATE = {
-	instruments: [
-		{ value: 'chocolate', label: 'Apple Inc.', id: '001' },
-		{ value: 'strawberry', label: 'Strawberry', id: '002' },
-		{ value: 'vanilla', label: 'Vanilla', id: '003' }
-	],
+	instruments: [],
 	selectedInstrumentId: null,
 }
 
 const instruments = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case ActionTypes.INSTRUMENT_SELECT : return applyInstrumentSelected(state, action)
+		case ActionTypes.INSTRUMENTS_FETCH_SUCCESS: return applyInstrumentsFetchSucceeded(state, action)
 		default : return state
 	}
 }
@@ -19,6 +16,11 @@ const instruments = (state = INITIAL_STATE, action) => {
 const applyInstrumentSelected = (state, action) => ({
 	...state,
 	selectedInstrumentId: action.instrumentId,
+})
+
+const applyInstrumentsFetchSucceeded = (state, action) => ({
+	...state,
+	instruments: action.response.data.instruments
 })
 
 export const getInstruments = state => {

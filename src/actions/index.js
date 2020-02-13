@@ -46,6 +46,16 @@ const doInstrumentSelect = instrumentId => ({
 	instrumentId
 })
 
+const doInstrumentsFetchSuccess = response => ({
+	type: ActionTypes.INSTRUMENTS_FETCH_SUCCESS,
+	response
+})
+
+const doInstrumentsFetchFailure = error => ({
+	type: ActionTypes.INSTRUMENTS_FETCH_FAILURE,
+	errorMessage: error.message || 'Something went wrong.',
+})
+
 export {
 	doUserSignupRequest,
 	doUserSignupSuccess,
@@ -55,4 +65,6 @@ export {
 	doUserLoginSuccess,
 	doDialogClose,
 	doInstrumentSelect,
+	doInstrumentsFetchSuccess,
+	doInstrumentsFetchFailure
 }

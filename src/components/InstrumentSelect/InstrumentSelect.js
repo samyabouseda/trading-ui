@@ -32,9 +32,10 @@ const customStyles = {
 }
 
 const InstrumentSelect = ({instruments, onSelect}) => {
+	const _instruments = instruments.map(instrument => ({ label: instrument.name, value: instrument.name, id: instrument.id }))
 	return (
 		<div>
-			<Select options={instruments} defaultValue={instruments[0]} styles={customStyles} onChange={({ id: instrumentId}) => onSelect(instrumentId)}/>
+			<Select options={_instruments} defaultValue={_instruments[0]} styles={customStyles} onChange={({ id: instrumentId}) => onSelect(instrumentId)}/>
 			<p className={styles.label}>Select asset</p>
 		</div>
 	)

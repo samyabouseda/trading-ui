@@ -6,6 +6,8 @@ import {
 	doUserSignupFailure,
 	doUserLoginSuccess,
 	doUserLoginFailure,
+	doInstrumentsFetchSuccess,
+	doInstrumentsFetchFailure,
 } from '../actions'
 import API from '../api'
 
@@ -13,6 +15,7 @@ function* watchAll() {
 	yield all([
 		takeEvery(ActionTypes.USER_SIGNUP_REQUEST, requestUserSignup),
 		takeEvery(ActionTypes.USER_LOGIN_REQUEST, requestUserLogin),
+		takeEvery(ActionTypes.USER_LOGIN_SUCCESS, requestAvailableInstruments),
 	])
 }
 
@@ -39,6 +42,15 @@ function* requestUserSignup(action) {
 		yield put(doUserSignupSuccess(response))
 	} catch (error) {
 		yield put(doUserSignupFailure(error))
+	}
+}
+
+function* requestAvailableInstruments(action) {
+	try {
+		const response = yield call(API.instruments.getAll)
+		yield put(doInstrumentsFetchSuccess(response))
+	} catch (error) {
+		yield put (doInstrumentsFetchFailure(error))
 	}
 }
 

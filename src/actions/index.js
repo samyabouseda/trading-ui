@@ -51,9 +51,9 @@ const doInstrumentsFetchSuccess = response => ({
 	response
 })
 
-const doInstrumentsFetchFailure = error => ({
-	type: ActionTypes.INSTRUMENTS_FETCH_FAILURE,
-	errorMessage: error.message || 'Something went wrong.',
+const doInstrumentBidsAsksFetchSuccess = response => ({
+	type: ActionTypes.INSTRUMENT_BIDS_ASKS_PRICE_FETCH_SUCCESS,
+	response,
 })
 
 export {
@@ -66,5 +66,5 @@ export {
 	doDialogClose,
 	doInstrumentSelect,
 	doInstrumentsFetchSuccess,
-	doInstrumentsFetchFailure
+	doInstrumentBidsAsksFetchSuccess,
 }

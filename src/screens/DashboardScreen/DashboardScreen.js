@@ -3,7 +3,7 @@ import Header from '../../components/LoggedInHeader'
 import SideBar from '../../components/SideBar'
 import InstrumentSelect from '../../components/InstrumentSelect'
 import Dashboard from '../../components/Dashboard'
-import OrderBook from '../../components/OrderBook'
+import ConnectedOrderBook from '../../containers/ConnectedOrderBook'
 
 const DashboardScreen = ({ user, instruments, onSelect }) => {
 	return (
@@ -12,7 +12,7 @@ const DashboardScreen = ({ user, instruments, onSelect }) => {
 				<InstrumentSelect instruments={instruments} onSelect={onSelect}/>
 			</Header>
 			<Dashboard>
-				<OrderBook/>
+				<ConnectedOrderBook/>
 			</Dashboard>
 			<SideBar />
 		</div>

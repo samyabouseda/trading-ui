@@ -3,29 +3,11 @@ import styles from './OrderBook.module.css'
 import DashboardCard from '../DashboardCard'
 import Table, { TableHeader, TableRow } from '../Table'
 
-const bids = [
-	{ price: 9.25, volume: 100 },
-	{ price: 10.45, volume: 230 },
-	{ price: 11.02, volume: 210 },
-	{ price: 12.51, volume: 50 },
-]
-
-const asks = [
-	{ price: 13.25, volume: 100 },
-	{ price: 13.45, volume: 230 },
-	{ price: 14.02, volume: 210 },
-	{ price: 15.51, volume: 50 },
-]
-
-const highestBid = { price: 12.51, volume: 50 }
-
-const lowestAsk = { price: 13.25, volume: 100 }
-
-const OrderBook = (props) => {
+const OrderBook = ({ bids, asks, lowestAsk, highestBid }) => {
 	return (
 			<DashboardCard title={"Order Book"}>
 				{_renderBids(bids)}
-				{_renderSpread(highestBid.price, lowestAsk.price)}
+				{_renderSpread(highestBid, lowestAsk)}
 				{_renderAsks(asks)}
 			</DashboardCard>
 	)

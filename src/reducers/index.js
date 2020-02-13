@@ -16,4 +16,4 @@ export default createRootReducer
 
 export { getErrorMessage } from './errorMessage'
 export { getUser, getSuccessMessage } from './user'
-export { getInstruments } from './instruments'
+export { getInstruments, getSelectedInstrument, getAsks, getBids, getHighestBid, getLowestAsk } from './instruments'

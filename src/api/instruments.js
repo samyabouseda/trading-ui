@@ -6,6 +6,7 @@ const SERVICE_URL = `${config.services.EXCHANGE_API_URL}/instruments`
 
 const getAll = async () => {
 	try {
+		// TODO: Replace hardcoded response with real request.
 		// const response = await axios.get(SERVICE_URL, )
 		return {
 			data: {
@@ -24,7 +25,29 @@ const getAll = async () => {
 const getById = async instrumentId => {
 	try {
 		const url = `${SERVICE_URL}/${instrumentId}`
-		return await axios.get(url)
+		// TODO: Replace hardcoded response with real request.
+		// const response = await axios.get(url)
+		return {
+			data: {
+				instrument: {
+					address: '0000',
+					bids: [
+						{ price: 9.25, volume: 100 },
+						{ price: 10.45, volume: 230 },
+						{ price: 11.02, volume: 210 },
+						{ price: 12.51, volume: 50 },
+					],
+					asks: [
+						{ price: 13.25, volume: 100 },
+						{ price: 13.45, volume: 230 },
+						{ price: 14.02, volume: 210 },
+						{ price: 15.51, volume: 50 },
+					],
+					highestBid: 12.51,
+					lowestAsk: 13.25,
+				}
+			}
+		}
 	} catch (error) {
 		if (error.message.includes(NOT_FOUND)) {
 			throw Error(

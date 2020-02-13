@@ -7,7 +7,7 @@ import {
 	doUserLoginSuccess,
 	doUserLoginFailure,
 	doInstrumentsFetchSuccess,
-	doInstrumentsFetchFailure,
+	doInstrumentBidsAsksFetchSuccess
 } from '../actions'
 import API from '../api'
 
@@ -16,6 +16,7 @@ function* watchAll() {
 		takeEvery(ActionTypes.USER_SIGNUP_REQUEST, requestUserSignup),
 		takeEvery(ActionTypes.USER_LOGIN_REQUEST, requestUserLogin),
 		takeEvery(ActionTypes.USER_LOGIN_SUCCESS, requestAvailableInstruments),
+		takeEvery(ActionTypes.INSTRUMENT_SELECT, requestSelectedInstrumentBidAskPrices),
 	])
 }
 
@@ -50,7 +51,16 @@ function* requestAvailableInstruments(action) {
 		const response = yield call(API.instruments.getAll)
 		yield put(doInstrumentsFetchSuccess(response))
 	} catch (error) {
-		yield put (doInstrumentsFetchFailure(error))
+		// TODO: yield put (doInstrumentsFetchFailure(error))
+	}
+}
+
+function* requestSelectedInstrumentBidAskPrices(action) {
+	try {
+		const response = yield call(API.instruments.getById, action.instrumentId)
+		yield put(doInstrumentBidsAsksFetchSuccess(response))
+	} catch (error) {
+		// TODO: yield put (doInstrumentBidsAsksFetchFailure(error))
 	}
 }
 

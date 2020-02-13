@@ -1,0 +1,16 @@
+.dashboard-card {
+
+}
+
+.dashboard-area__order-book {
+
+}
+
+.title {
+    margin: 0;
+    padding: 0 0 1em;
+    color: #73747A;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .75em;
+}

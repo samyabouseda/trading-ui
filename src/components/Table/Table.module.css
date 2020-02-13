@@ -1,0 +1,30 @@
+.table {
+    width: 100%;
+    margin: 1em 0;
+}
+
+.header {
+    color: #73747A;
+    font-size: .85em;
+    width: 100%;
+}
+
+.header-item:first-child {
+    text-align: left;
+}
+
+.row {
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.row-item {
+    padding: .1em 0;
+}
+
+.row-item:first-child {
+    text-align: left;
+}

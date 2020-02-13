@@ -1,10 +1,15 @@
 import React from 'react'
+import Header from '../../components/LoggedInHeader'
+import SideBar from '../../components/SideBar'
+import InstrumentSelect from '../../components/InstrumentSelect'
 
-const DashboardScreen = ({ user }) => {
+const DashboardScreen = ({ user, instruments, onSelect }) => {
 	return (
 		<div data-testid="dashboard-screen">
-			<h1>Dashboard</h1>
-			<h2>Hi, {user.username}</h2>
+			<Header>
+				<InstrumentSelect instruments={instruments} onSelect={onSelect}/>
+			</Header>
+			<SideBar />
 		</div>
 	)
 }

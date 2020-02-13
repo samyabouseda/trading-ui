@@ -40,6 +40,12 @@ const doDialogClose = () => ({
 	type: ActionTypes.DIALOG_CLOSING,
 })
 
+// INSTRUMENTS
+const doInstrumentSelect = instrumentId => ({
+	type: ActionTypes.INSTRUMENT_SELECT,
+	instrumentId
+})
+
 export {
 	doUserSignupRequest,
 	doUserSignupSuccess,
@@ -48,4 +54,5 @@ export {
 	doUserLoginFailure,
 	doUserLoginSuccess,
 	doDialogClose,
+	doInstrumentSelect,
 }

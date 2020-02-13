@@ -1,0 +1,5 @@
+.dashboard {
+    padding: 2em;
+    margin-left: calc(.875em + 4em);
+    height: 100%;
+}

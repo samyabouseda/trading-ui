@@ -2,12 +2,12 @@ import axios from 'axios'
 import config from '../config'
 import { NOT_FOUND } from 'http-status-codes'
 
-const SERVICE_URL = `${config.services.EXCHANGE_API_URL}/instruments`
+const SERVICE_URL = `${config.services.EXCHANGE_API_URL}/instruments/`
 
 const getAll = async () => {
 	try {
 		// TODO: Replace hardcoded response with real request.
-		// const response = await axios.get(SERVICE_URL, )
+		const response = await axios.get(SERVICE_URL, )
 		return {
 			data: {
 				instruments: [
@@ -17,6 +17,7 @@ const getAll = async () => {
 				]
 			}
 		}
+		// return response
 	} catch (error) {
 		throw Error(error.message)
 	}
@@ -24,7 +25,7 @@ const getAll = async () => {
 
 const getById = async instrumentId => {
 	try {
-		const url = `${SERVICE_URL}/${instrumentId}`
+		const url = `${SERVICE_URL}${instrumentId}`
 		// TODO: Replace hardcoded response with real request.
 		// const response = await axios.get(url)
 		return {
@@ -48,6 +49,7 @@ const getById = async instrumentId => {
 				}
 			}
 		}
+		// return response
 	} catch (error) {
 		if (error.message.includes(NOT_FOUND)) {
 			throw Error(

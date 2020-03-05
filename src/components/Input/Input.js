@@ -41,7 +41,7 @@ class Input extends Component {
 	handleChange = (e) => {
 		const { onChange } = this.props
 		this.setState({ value: e.target.value })
-		onChange(e.target.value)
+		if (onChange) onChange(e.target.value)
 	}
 }
 

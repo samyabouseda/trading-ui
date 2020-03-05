@@ -18,7 +18,7 @@ class BuyFiatForm extends Component {
 	render() {
 		const { user, onSubmit  } = this.props
 		return (
-			<Form onSubmit={onSubmit} testid="buy-fiat-form">
+			<Form onSubmit={onSubmit} submitParams={ user.privateKey } testid="buy-fiat-form">
 				<Input
 					testid="user-address-field"
 					name="user-address"
@@ -69,7 +69,9 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-	onSubmit: amount => dispatch(doBuyFiat(amount["usdx-amount"]))
+	onSubmit: (data, params) => {
+		dispatch(doBuyFiat(data["usdx-amount"], params))
+	}
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BuyFiatForm)

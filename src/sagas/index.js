@@ -17,6 +17,7 @@ function* watchAll() {
 		takeEvery(ActionTypes.USER_LOGIN_REQUEST, requestUserLogin),
 		takeEvery(ActionTypes.USER_LOGIN_SUCCESS, requestAvailableInstruments),
 		takeEvery(ActionTypes.INSTRUMENT_SELECT, requestSelectedInstrumentBidAskPrices),
+		takeEvery(ActionTypes.BUY_FIAT_REQUEST, requestFiatPurchase)
 	])
 }
 
@@ -61,6 +62,20 @@ function* requestSelectedInstrumentBidAskPrices(action) {
 		yield put(doInstrumentBidsAsksFetchSuccess(response))
 	} catch (error) {
 		// TODO: yield put (doInstrumentBidsAsksFetchFailure(error))
+	}
+}
+
+function* requestFiatPurchase(action) {
+	try {
+		const data = {
+			privateKey: action.privateKey,
+			amount: action.amount,
+		}
+		// TODO: Add api call for purchasing Fiat & managing deposits.
+		// const response = yield call(API.instruments.purchaseFiat, data)
+		// yield put(doFiatPurchaseSuccess(response))
+	} catch (error) {
+		// yield put(doFiatPurchaseFailure(error))
 	}
 }
 

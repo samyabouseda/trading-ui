@@ -6,6 +6,7 @@ import {
 	ConnectedLoginScreen,
 	ConnectedSignupScreen,
 	ConnectedDashboardScreen,
+	ConnectedProfileScreen
 } from '../containers'
 
 const Root = ({ store, history }) => (
@@ -26,6 +27,11 @@ const Root = ({ store, history }) => (
 					exact
 					path="/dashboard"
 					component={ConnectedDashboardScreen}
+				/>
+				<Route
+					exact
+					path="/profile"
+					component={ConnectedProfileScreen}
 				/>
 				<Redirect exact from="/" to="/signup" />
 			</Switch>

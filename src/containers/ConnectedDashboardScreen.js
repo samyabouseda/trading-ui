@@ -6,6 +6,7 @@ import { doInstrumentSelect } from '../actions'
 const mapStateToProps = state => ({
 	user: getUser(state),
 	instruments: getInstruments(state),
+	currentPath: state.router.location.pathname,
 })
 
 const mapDispatchToProps = dispatch => ({

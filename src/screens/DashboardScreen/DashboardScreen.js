@@ -5,7 +5,7 @@ import InstrumentSelect from '../../components/InstrumentSelect'
 import Dashboard from '../../components/Dashboard'
 import ConnectedOrderBook from '../../containers/ConnectedOrderBook'
 
-const DashboardScreen = ({ user, instruments, onSelect }) => {
+const DashboardScreen = ({ instruments, onSelect, currentPath }) => {
 	return (
 		<div data-testid="dashboard-screen">
 			<Header>
@@ -14,7 +14,7 @@ const DashboardScreen = ({ user, instruments, onSelect }) => {
 			<Dashboard>
 				<ConnectedOrderBook/>
 			</Dashboard>
-			<SideBar />
+			<SideBar currentPath={currentPath} />
 		</div>
 	)
 }

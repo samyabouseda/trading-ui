@@ -56,6 +56,12 @@ const doInstrumentBidsAsksFetchSuccess = response => ({
 	response,
 })
 
+// USDX
+export const doBuyFiat = amount => ({
+	type: ActionTypes.BUY_FIAT_REQUEST,
+	amount,
+})
+
 export {
 	doUserSignupRequest,
 	doUserSignupSuccess,

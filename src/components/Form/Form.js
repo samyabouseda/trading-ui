@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './Form.module.css'
 
 const Form = ({ onSubmit, testid, children }) => {
 	const handleSubmit = event => {
@@ -24,7 +25,7 @@ const Form = ({ onSubmit, testid, children }) => {
 
 	return (
 		<div>
-			<form data-testid={testid} onSubmit={handleSubmit}>
+			<form className={styles.form} data-testid={testid} onSubmit={handleSubmit}>
 				{children}
 			</form>
 		</div>

@@ -4,7 +4,6 @@ import styles from './SideBar.module.css'
 import { DashboardIcon, ProfileIcon } from '../../icons'
 
 const Sidebar = ({ currentPath }) => {
-	console.log(currentPath)
 	return (
 		<section className={styles.sidebar}>
 			<div className={styles.icons}>

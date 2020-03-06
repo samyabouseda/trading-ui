@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Button, Form, Input } from '../index'
 import { connect } from 'react-redux'
 import { getUser } from '../../reducers'
-import { doBuyFiat } from '../../actions'
+import { doFiatPurchaseRequest } from '../../actions'
 
 const ETH_TO_USDX_RATE = 231
 
@@ -70,7 +70,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	onSubmit: (data, params) => {
-		dispatch(doBuyFiat(data["usdx-amount"], params))
+		dispatch(doFiatPurchaseRequest(data["usdx-amount"], params))
 	}
 })
 

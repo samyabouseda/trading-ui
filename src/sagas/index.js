@@ -7,7 +7,9 @@ import {
 	doUserLoginSuccess,
 	doUserLoginFailure,
 	doInstrumentsFetchSuccess,
-	doInstrumentBidsAsksFetchSuccess
+	doInstrumentBidsAsksFetchSuccess,
+	doFiatPurchaseSuccess,
+	doFiatPurchaseFailure,
 } from '../actions'
 import API from '../api'
 
@@ -17,7 +19,7 @@ function* watchAll() {
 		takeEvery(ActionTypes.USER_LOGIN_REQUEST, requestUserLogin),
 		takeEvery(ActionTypes.USER_LOGIN_SUCCESS, requestAvailableInstruments),
 		takeEvery(ActionTypes.INSTRUMENT_SELECT, requestSelectedInstrumentBidAskPrices),
-		takeEvery(ActionTypes.BUY_FIAT_REQUEST, requestFiatPurchase)
+		takeEvery(ActionTypes.FIAT_PURCHASE_REQUEST, requestFiatPurchase)
 	])
 }
 
@@ -71,11 +73,10 @@ function* requestFiatPurchase(action) {
 			privateKey: action.privateKey,
 			amount: action.amount,
 		}
-		// TODO: Add api call for purchasing Fiat & managing deposits.
-		// const response = yield call(API.instruments.purchaseFiat, data)
-		// yield put(doFiatPurchaseSuccess(response))
+		const response = yield call(API.instruments.purchaseFiat, data)
+		yield put(doFiatPurchaseSuccess(response))
 	} catch (error) {
-		// yield put(doFiatPurchaseFailure(error))
+		yield put(doFiatPurchaseFailure(error))
 	}
 }
 

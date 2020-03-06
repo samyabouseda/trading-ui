@@ -56,9 +56,19 @@ export const doInstrumentBidsAsksFetchSuccess = response => ({
 	response,
 })
 
-// USDX
-export const doBuyFiat = (amount, privateKey) => ({
-	type: ActionTypes.BUY_FIAT_REQUEST,
+// FIAT
+export const doFiatPurchaseRequest = (amount, privateKey) => ({
+	type: ActionTypes.FIAT_PURCHASE_REQUEST,
 	amount,
 	privateKey,
+})
+
+export const doFiatPurchaseSuccess = response => ({
+	type: ActionTypes.FIAT_PURCHASE_SUCCESS,
+	response,
+})
+
+export const doFiatPurchaseFailure = error => ({
+	type: ActionTypes.FIAT_PURCHASE_FAILURE,
+	errorMessage: error.message || 'Could not complete fiat purchase.',
 })

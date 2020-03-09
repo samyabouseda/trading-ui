@@ -63,24 +63,24 @@ const getById = async instrumentId => {
 const purchaseFiat = async ({ amount, privateKey }) => {
 	try {
 		const URL = `${SERVICE_URL}/fiat/USDX`
-		// return await axios.post(URL, {
-		// 	amount,
-		// 	privateKey,
-		// })
-		return {
-			data: {
-				purchase: {
-					buyer: "0x3d088960898540017ABeCEcAf6017246899495e4",
-					fiat: {
-						symbol: "USDX",
-						name: "Dextr. USD",
-						address: "0x3d088960898540017ABeCEcAf60172468994FAAA",
-					},
-					amount: 231,
-					status: "pending" // complete,
-				}
-			}
-		}
+		return await axios.post(URL, {
+			amount,
+			privateKey,
+		})
+		// return {
+		// 	data: {
+		// 		purchase: {
+		// 			buyer: "0x3d088960898540017ABeCEcAf6017246899495e4",
+		// 			fiat: {
+		// 				symbol: "USDX",
+		// 				name: "Dextr. USD",
+		// 				address: "0x3d088960898540017ABeCEcAf60172468994FAAA",
+		// 			},
+		// 			amount: 231,
+		// 			status: "pending" // complete,
+		// 		}
+		// 	}
+		// }
 	} catch (error) {
 		throw Error(error.message)
 	}

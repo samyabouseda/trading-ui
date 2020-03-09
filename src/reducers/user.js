@@ -86,11 +86,11 @@ const _updateBalances = (balances, purchase) => {
 	let updatedBalances = [...balances]
 	updatedBalances = updatedBalances.map(instrument => {
 		if (instrument.symbol === purchase.fiat.symbol) {
-			let purchaseAmount = purchase.amount
-			let currentAmount = instrument.amount
-			let amount = purchaseAmount+currentAmount
+			let purchaseAmount = parseFloat(purchase.amount)
+			let currentAmount = parseFloat(instrument.amount)
+			let newAmount = purchaseAmount + currentAmount
 			exists = true
-			return {...instrument, amount}
+			return {...instrument, amount: newAmount}
 		}
 	})
 	if (!exists) {

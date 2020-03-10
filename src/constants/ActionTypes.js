@@ -1,5 +1,3 @@
-import { doFiatPurchaseRequest } from '../actions'
-
 export const ActionTypes = {
 	USER_SIGNUP_REQUEST: 'USER_SIGNUP_REQUEST',
 	USER_SIGNUP_SUCCESS: 'USER_SIGNUP_SUCCESS',

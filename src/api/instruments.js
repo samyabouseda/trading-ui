@@ -1,6 +1,6 @@
 import axios from 'axios'
 import config from '../config'
-import { CONFLICT, NOT_FOUND } from 'http-status-codes'
+import { NOT_FOUND } from 'http-status-codes'
 
 const SERVICE_URL = `${config.services.EXCHANGE_API_URL}/instruments/`
 

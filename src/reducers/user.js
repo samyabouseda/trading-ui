@@ -91,6 +91,8 @@ const _updateBalances = (balances, purchase) => {
 			let newAmount = purchaseAmount + currentAmount
 			exists = true
 			return {...instrument, amount: newAmount}
+		} else {
+			return instrument
 		}
 	})
 	if (!exists) {

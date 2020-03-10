@@ -2,15 +2,13 @@ import React from 'react'
 import styles from './Portfolio.module.css'
 import DashboardCard from '../DashboardCard'
 import Table, { TableHeader, TableRow } from '../Table'
-import { getAsks, getBids, getHighestBid, getLowestAsk, getUser } from '../../reducers'
-import { connect } from 'react-redux'
 
-const assets = [
-	{ symbol: "USDX", name: "Dextr Dollar", amount: "231" },
-	{ symbol: "AAPL", name: "Apple Inc.", amount: "231" },
-	{ symbol: "MSFT", name: "Microsoft Corp.", amount: "231" },
-	{ symbol: "TSLA", name: "Tesla Inc.", amount: "231" },
-]
+// const assets = [
+// 	{ symbol: "USDX", name: "Dextr Dollar", amount: "231" },
+// 	{ symbol: "AAPL", name: "Apple Inc.", amount: "231" },
+// 	{ symbol: "MSFT", name: "Microsoft Corp.", amount: "231" },
+// 	{ symbol: "TSLA", name: "Tesla Inc.", amount: "231" },
+// ]
 
 const Portfolio = ({ user }) => {
 	return (
@@ -31,16 +29,4 @@ const _renderAssets = assets => (
 	</Table>
 )
 
-const mapStateToProps = state => ({
-	// user: getUser(state),
-	bids: getBids(state),
-	asks: getAsks(state),
-	highestBid: getHighestBid(state),
-	lowestAsk: getLowestAsk(state)
-})
-
-const mapDispatchToProps = dispatch => ({
-
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Portfolio)
+export default Portfolio

@@ -1,0 +1,14 @@
+.sub-title {
+    height: 0;
+    color: gray;
+    font-weight: bold;
+    font-size: .8em;
+    margin: 0 0 0.25em;
+    padding: 0;
+}
+
+.title {
+    font-weight: 700;
+    margin: .25em 0;
+    padding: 0;
+}

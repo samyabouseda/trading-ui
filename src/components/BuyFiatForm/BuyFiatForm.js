@@ -3,6 +3,7 @@ import { Button, Form, Input } from '../index'
 import { connect } from 'react-redux'
 import { getUser } from '../../reducers'
 import { doFiatPurchaseRequest } from '../../actions'
+import DashboardCard from '../DashboardCard'
 
 const ETH_TO_USDX_RATE = 231
 
@@ -18,6 +19,7 @@ class BuyFiatForm extends Component {
 	render() {
 		const { user, onSubmit  } = this.props
 		return (
+			<DashboardCard title="Buy fiat">
 			<Form onSubmit={onSubmit} submitParams={ user.privateKey } testid="buy-fiat-form">
 				<Input
 					testid="user-address-field"
@@ -48,6 +50,7 @@ class BuyFiatForm extends Component {
 					Buy USDX
 				</Button>
 			</Form>
+			</DashboardCard>
 		)
 	}
 

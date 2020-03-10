@@ -1,0 +1,16 @@
+.label {
+    height: 0;
+    color: gray;
+    font-weight: bold;
+    font-size: .8em;
+    padding-left: 3px;
+    margin-top: .25em;
+}
+
+.header {
+    margin-bottom: 2.5em;
+}
+
+.header__total {
+    margin-bottom: 0;
+}

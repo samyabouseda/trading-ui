@@ -6,6 +6,7 @@ const INITIAL_STATE = {
 	privateKey: null,
 	successMessage: null,
 	balances: [],
+	totalDeposited: 0,
 }
 
 const user = (state = INITIAL_STATE, action) => {
@@ -24,6 +25,8 @@ const user = (state = INITIAL_STATE, action) => {
 			return applyDialogClosing(state, action)
 		case ActionTypes.FIAT_PURCHASE_SUCCESS:
 			return applyFiatPurchaseSucceeded(state, action)
+		case ActionTypes.FIAT_DEPOSIT_SUCCESS:
+			return applyFiatDepositSucceeded(state, action)
 		default:
 			return state
 	}
@@ -78,6 +81,14 @@ const applyFiatPurchaseSucceeded = (state, action) => {
 	return ({
 		...state,
 		balances: balances,
+	})
+}
+
+const applyFiatDepositSucceeded = (state, action) => {
+	const totalDeposited = action.response.data.totalDeposited
+	return ({
+		...state,
+		totalDeposited,
 	})
 }
 

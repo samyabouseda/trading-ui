@@ -86,10 +86,37 @@ const purchaseFiat = async ({ amount, privateKey }) => {
 	}
 }
 
+const depositFiat = async ({ amount, privateKey }) => {
+	try {
+		// const URL = `${SERVICE_URL}/fiat/USDX`
+		// return await axios.post(URL, {
+		// 	amount,
+		// 	privateKey,
+		// })
+		return {
+			data: {
+				totalDeposited: 100,
+				deposit: {
+					account: "0x3d088960898540017ABeCEcAf6017246899495e4",
+					asset: {
+						symbol: "USDX",
+						name: "Dextr. USD",
+						address: "0x3d088960898540017ABeCEcAf60172468994FAAA",
+					},
+					amount: 100,
+				}
+			}
+		}
+	} catch (error) {
+		throw Error(error.message)
+	}
+}
+
 const accounts = {
 	getAll,
 	getById,
 	purchaseFiat,
+	depositFiat,
 }
 
 export default accounts

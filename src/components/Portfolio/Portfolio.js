@@ -3,13 +3,6 @@ import styles from './Portfolio.module.css'
 import DashboardCard from '../DashboardCard'
 import Table, { TableHeader, TableRow } from '../Table'
 
-// const assets = [
-// 	{ symbol: "USDX", name: "Dextr Dollar", amount: "231" },
-// 	{ symbol: "AAPL", name: "Apple Inc.", amount: "231" },
-// 	{ symbol: "MSFT", name: "Microsoft Corp.", amount: "231" },
-// 	{ symbol: "TSLA", name: "Tesla Inc.", amount: "231" },
-// ]
-
 const Portfolio = ({ user }) => {
 	return (
 		<DashboardCard title={"Portfolio"}>

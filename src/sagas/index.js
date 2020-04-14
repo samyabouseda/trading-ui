@@ -10,6 +10,8 @@ import {
 	doInstrumentBidsAsksFetchSuccess,
 	doFiatPurchaseSuccess,
 	doFiatPurchaseFailure,
+	doFiatDepositSuccess,
+	doFiatDepositFailure,
 } from '../actions'
 import API from '../api'
 
@@ -19,7 +21,8 @@ function* watchAll() {
 		takeEvery(ActionTypes.USER_LOGIN_REQUEST, requestUserLogin),
 		takeEvery(ActionTypes.USER_LOGIN_SUCCESS, requestAvailableInstruments),
 		takeEvery(ActionTypes.INSTRUMENT_SELECT, requestSelectedInstrumentBidAskPrices),
-		takeEvery(ActionTypes.FIAT_PURCHASE_REQUEST, requestFiatPurchase)
+		takeEvery(ActionTypes.FIAT_PURCHASE_REQUEST, requestFiatPurchase),
+		takeEvery(ActionTypes.FIAT_DEPOSIT_REQUEST, requestFiatDeposit),
 	])
 }
 
@@ -77,6 +80,19 @@ function* requestFiatPurchase(action) {
 		yield put(doFiatPurchaseSuccess(response))
 	} catch (error) {
 		yield put(doFiatPurchaseFailure(error))
+	}
+}
+
+function* requestFiatDeposit(action) {
+	try {
+		const data = {
+			privateKey: action.privateKey,
+			amount: action.amount,
+		}
+		const response = yield call(API.instruments.depositFiat, data)
+		yield put(doFiatDepositSuccess(response))
+	} catch (error) {
+		yield put(doFiatDepositFailure(error))
 	}
 }
 

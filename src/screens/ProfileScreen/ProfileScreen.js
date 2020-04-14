@@ -5,6 +5,7 @@ import Dashboard from '../../components/Dashboard'
 import BuyFiatForm from '../../components/BuyFiatForm'
 import Portfolio from '../../components/Portfolio'
 import styles from './ProfileScreen.module.css'
+import TokenDepositForm from '../../components/TokenDepositForm'
 
 const ProfileScreen = ({ user, currentPath }) => {
 	return (
@@ -16,6 +17,7 @@ const ProfileScreen = ({ user, currentPath }) => {
 			<SideBar currentPath={currentPath}/>
 			<Dashboard>
 					<BuyFiatForm/>
+					<TokenDepositForm />
 					<Portfolio user={user} />
 			</Dashboard>
 		</div>

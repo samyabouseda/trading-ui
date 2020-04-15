@@ -73,9 +73,10 @@ export const doFiatPurchaseFailure = error => ({
 	errorMessage: error.message || 'Could not complete fiat purchase.',
 })
 
-export const doFiatDepositRequest = response => ({
+export const doFiatDepositRequest = (amount, privateKey) => ({
 	type: ActionTypes.FIAT_DEPOSIT_REQUEST,
-	response,
+	amount,
+	privateKey,
 })
 
 export const doFiatDepositSuccess = response => ({

@@ -86,6 +86,7 @@ const applyFiatPurchaseSucceeded = (state, action) => {
 
 const applyFiatDepositSucceeded = (state, action) => {
 	const totalDeposited = action.response.data.totalDeposited
+	console.log(totalDeposited)
 	return ({
 		...state,
 		totalDeposited,
@@ -116,13 +117,14 @@ export const getSuccessMessage = state => state.user.successMessage
 
 export const getUser = state => {
 	const {
-		user: { username, address, privateKey, balances },
+		user: { username, address, privateKey, balances, totalDeposited },
 	} = state
 	return {
 		username,
 		address,
 		privateKey,
 		balances,
+		totalDeposited,
 	}
 }
 

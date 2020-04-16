@@ -86,7 +86,6 @@ const applyFiatPurchaseSucceeded = (state, action) => {
 
 const applyFiatDepositSucceeded = (state, action) => {
 	const totalDeposited = action.response.data.totalDeposited
-	console.log(totalDeposited)
 	return ({
 		...state,
 		totalDeposited,

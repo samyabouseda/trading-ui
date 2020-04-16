@@ -11,6 +11,7 @@ const create = async ({ username, password }) => {
 			password,
 		})
 	} catch (error) {
+		console.log(error)
 		if (error.message.includes(CONFLICT)) {
 			throw Error('User already exists!')
 		}

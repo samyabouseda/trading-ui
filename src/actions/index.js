@@ -43,12 +43,12 @@ export const doDialogClose = () => ({
 // INSTRUMENTS
 export const doInstrumentSelect = instrumentId => ({
 	type: ActionTypes.INSTRUMENT_SELECT,
-	instrumentId
+	instrumentId,
 })
 
 export const doInstrumentsFetchSuccess = response => ({
 	type: ActionTypes.INSTRUMENTS_FETCH_SUCCESS,
-	response
+	response,
 })
 
 export const doInstrumentBidsAsksFetchSuccess = response => ({
@@ -70,7 +70,8 @@ export const doFiatPurchaseSuccess = response => ({
 
 export const doFiatPurchaseFailure = error => ({
 	type: ActionTypes.FIAT_PURCHASE_FAILURE,
-	errorMessage: error.message || 'Could not complete fiat purchase.',
+	errorMessage:
+		error.message || 'Could not complete fiat purchase.',
 })
 
 export const doFiatDepositRequest = (amount, privateKey) => ({
@@ -87,4 +88,28 @@ export const doFiatDepositSuccess = response => ({
 export const doFiatDepositFailure = error => ({
 	type: ActionTypes.FIAT_DEPOSIT_FAILURE,
 	errorMessage: error.message || 'Could not complete deposit.',
+})
+
+// ORDERS
+export const doPlaceOrderRequest = (
+	numberOfShares,
+	assetId,
+	usdxAmount,
+	privateKey,
+) => ({
+	type: ActionTypes.PLACE_ORDER_REQUEST,
+	numberOfShares,
+	assetId,
+	usdxAmount,
+	privateKey,
+})
+
+export const doPlaceOrderSuccess = response => ({
+	type: ActionTypes.PLACE_ORDER_SUCCESS,
+	response,
+})
+
+export const doPlaceOrderFailure = error => ({
+	type: ActionTypes.PLACE_ORDER_FAILURE,
+	errorMessage: error.message || 'Could not place the order.',
 })

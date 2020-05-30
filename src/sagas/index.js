@@ -12,6 +12,8 @@ import {
 	doFiatPurchaseFailure,
 	doFiatDepositSuccess,
 	doFiatDepositFailure,
+	doPlaceOrderSuccess,
+	doPlaceOrderFailure,
 } from '../actions'
 import API from '../api'
 
@@ -19,10 +21,23 @@ function* watchAll() {
 	yield all([
 		takeEvery(ActionTypes.USER_SIGNUP_REQUEST, requestUserSignup),
 		takeEvery(ActionTypes.USER_LOGIN_REQUEST, requestUserLogin),
-		takeEvery(ActionTypes.USER_LOGIN_SUCCESS, requestAvailableInstruments),
-		takeEvery(ActionTypes.INSTRUMENT_SELECT, requestSelectedInstrumentBidAskPrices),
-		takeEvery(ActionTypes.FIAT_PURCHASE_REQUEST, requestFiatPurchase),
-		takeEvery(ActionTypes.FIAT_DEPOSIT_REQUEST, requestFiatDeposit),
+		takeEvery(
+			ActionTypes.USER_LOGIN_SUCCESS,
+			requestAvailableInstruments,
+		),
+		takeEvery(
+			ActionTypes.INSTRUMENT_SELECT,
+			requestSelectedInstrumentBidAskPrices,
+		),
+		takeEvery(
+			ActionTypes.FIAT_PURCHASE_REQUEST,
+			requestFiatPurchase,
+		),
+		takeEvery(
+			ActionTypes.FIAT_DEPOSIT_REQUEST,
+			requestFiatDeposit,
+		),
+		takeEvery(ActionTypes.PLACE_ORDER_REQUEST, requestPlaceOrder),
 	])
 }
 
@@ -63,7 +78,10 @@ function* requestAvailableInstruments(action) {
 
 function* requestSelectedInstrumentBidAskPrices(action) {
 	try {
-		const response = yield call(API.instruments.getById, action.instrumentId)
+		const response = yield call(
+			API.instruments.getById,
+			action.instrumentId,
+		)
 		yield put(doInstrumentBidsAsksFetchSuccess(response))
 	} catch (error) {
 		// TODO: yield put (doInstrumentBidsAsksFetchFailure(error))
@@ -76,7 +94,10 @@ function* requestFiatPurchase(action) {
 			privateKey: action.privateKey,
 			amount: action.amount,
 		}
-		const response = yield call(API.instruments.purchaseFiat, data)
+		const response = yield call(
+			API.instruments.purchaseFiat,
+			data,
+		)
 		yield put(doFiatPurchaseSuccess(response))
 	} catch (error) {
 		yield put(doFiatPurchaseFailure(error))
@@ -93,6 +114,21 @@ function* requestFiatDeposit(action) {
 		yield put(doFiatDepositSuccess(response))
 	} catch (error) {
 		yield put(doFiatDepositFailure(error))
+	}
+}
+
+function* requestPlaceOrder(action) {
+	try {
+		const data = {
+			numberOfShares: action.numberOfShares,
+			assetId: action.assetId,
+			usdxAmount: action.usdxAmount,
+			privateKey: action.privateKey,
+		}
+		const response = yield call(API.orders.placeOrder, data)
+		yield put(doPlaceOrderSuccess(response))
+	} catch (error) {
+		yield put(doPlaceOrderFailure(error))
 	}
 }
 

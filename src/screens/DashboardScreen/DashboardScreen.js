@@ -4,7 +4,7 @@ import SideBar from '../../components/SideBar'
 import InstrumentSelect from '../../components/InstrumentSelect'
 import Dashboard from '../../components/Dashboard'
 import ConnectedOrderBook from '../../containers/ConnectedOrderBook'
-import ConnectedOrderForm from '../../containers/ConnectedOrderForm'
+import OrderForm from '../../components/OrderForm'
 import Portfolio from '../../components/Portfolio/Portfolio'
 
 const DashboardScreen = ({
@@ -23,7 +23,7 @@ const DashboardScreen = ({
 			</Header>
 			<Dashboard>
 				<ConnectedOrderBook />
-				<ConnectedOrderForm />
+				<OrderForm />
 				<Portfolio user={user} />
 			</Dashboard>
 			<SideBar currentPath={currentPath} />

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Button, Form, Input } from '../index'
 import { connect } from 'react-redux'
-import { getInstrument } from '../../reducers'
-import { doFiatPurchaseRequest } from '../../actions'
+import { getInstrument, getUser } from '../../reducers'
+import { doPlaceOrderRequest } from '../../actions'
 import DashboardCard from '../DashboardCard'
 import styles from './OrderForm.module.css'
 
@@ -21,12 +21,12 @@ class OrderForm extends Component {
 	}
 
 	render() {
-		const { instrument, onSubmit } = this.props
+		const { instrument, user, onSubmit } = this.props
 		return (
 			<DashboardCard title="Order Form">
 				<Form
 					onSubmit={onSubmit}
-					submitParams={''}
+					submitParams={user.privateKey}
 					testid="buy-fiat-form"
 				>
 					<Button
@@ -59,7 +59,7 @@ class OrderForm extends Component {
 					/>
 					<Input
 						testid="eth-amount-field"
-						name="eth-amount"
+						name="number-of-shares"
 						label="Quantity"
 						type="text"
 						onChange={this.handleQuantityChange}
@@ -72,6 +72,16 @@ class OrderForm extends Component {
 						type="text"
 						onChange={this.handlePriceChange}
 						value={this.state.usdxAmount}
+					/>
+					<input
+						type="hidden"
+						name="price-per-share"
+						value={this.state.assetPricePerShare}
+					/>
+					<input
+						type="hidden"
+						name="asset-id"
+						value={instrument.id}
 					/>
 					<Button
 						type="submit"
@@ -135,11 +145,19 @@ const Info = ({ instrument, marketSideIsBuy }) => (
 
 const mapStateToProps = state => ({
 	instrument: getInstrument(state),
+	user: getUser(state),
 })
 
 const mapDispatchToProps = dispatch => ({
 	onSubmit: (data, params) => {
-		// dispatch(doFiatPurchaseRequest(data['usdx-amount'], params))
+		dispatch(
+			doPlaceOrderRequest(
+				data['number-of-shares'],
+				data['asset-id'],
+				data['usdx-amount'],
+				params,
+			),
+		)
 	},
 })
 

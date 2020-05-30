@@ -22,20 +22,41 @@ const customStyles = {
 		border: 'none',
 	}),
 	singleValue: (provided, state) => {
-		const opacity = state.isDisabled ? 0.5 : 1;
-		const transition = 'opacity 300ms';
-		return { ...provided, opacity, transition, fontWeight: 700, color: 'white' };
+		const opacity = state.isDisabled ? 0.5 : 1
+		const transition = 'opacity 300ms'
+		return {
+			...provided,
+			opacity,
+			transition,
+			fontWeight: 700,
+			color: 'white',
+		}
 	},
 	input: (provided, state) => {
-		return {color: 'white', fontWeight: 700}
-	}
+		return { color: 'white', fontWeight: 700 }
+	},
 }
 
-const InstrumentSelect = ({instruments, onSelect}) => {
-	const _instruments = instruments.map(instrument => ({ label: instrument.name, value: instrument.name, id: instrument.id }))
+const InstrumentSelect = ({ instruments, onSelect }) => {
+	const _instruments = instruments.map(instrument => ({
+		label: instrument.name,
+		value: instrument.name,
+		id: instrument._id,
+	}))
+
+	const handleChange = selectedOption => {
+		console.log(selectedOption)
+		const instrumentId = selectedOption.id
+		onSelect(instrumentId)
+	}
 	return (
 		<div>
-			<Select options={_instruments} defaultValue={_instruments[0]} styles={customStyles} onChange={({ id: instrumentId}) => onSelect(instrumentId)}/>
+			<Select
+				options={_instruments}
+				defaultValue={_instruments[0]}
+				styles={customStyles}
+				onChange={handleChange}
+			/>
 			<p className={styles.label}>Select asset</p>
 		</div>
 	)

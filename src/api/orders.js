@@ -2,36 +2,27 @@ import axios from 'axios'
 import config from '../config'
 import { NOT_FOUND } from 'http-status-codes'
 
-const SERVICE_URL = `${config.services.EXCHANGE_API_URL}/orders/`
+const SERVICE_URL = `${config.services.EXCHANGE_API_URL}`
 
 const placeOrder = async ({
 	numberOfShares,
 	assetId,
-	usdxAmount,
+	limitPrice,
+	side,
 	privateKey,
 }) => {
 	try {
 		const URL = `${SERVICE_URL}/orders`
+		const order = {
+			side,
+			limitPrice,
+			size: numberOfShares,
+			instrument: '0x7d0c42B08088B9c451dd68b3a6e3Ed770c6E08D6',
+		}
 		return await axios.post(URL, {
-			numberOfShares,
-			assetId,
-			usdxAmount,
+			order,
 			privateKey,
 		})
-		// return {
-		// 	data: {
-		// 		purchase: {
-		// 			buyer: "0x3d088960898540017ABeCEcAf6017246899495e4",
-		// 			fiat: {
-		// 				symbol: "USDX",
-		// 				name: "Dextr. USD",
-		// 				address: "0x3d088960898540017ABeCEcAf60172468994FAAA",
-		// 			},
-		// 			amount: 231,
-		// 			status: "pending" // complete,
-		// 		}
-		// 	}
-		// }
 	} catch (error) {
 		throw Error(error.message)
 	}

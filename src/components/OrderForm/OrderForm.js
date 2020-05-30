@@ -75,13 +75,20 @@ class OrderForm extends Component {
 					/>
 					<input
 						type="hidden"
-						name="price-per-share"
+						name="limit-price"
 						value={this.state.assetPricePerShare}
 					/>
 					<input
 						type="hidden"
 						name="asset-id"
 						value={instrument.id}
+					/>
+					<input
+						type="hidden"
+						name="side"
+						value={
+							this.state.marketSideIsBuy ? 'bid' : 'ask'
+						}
 					/>
 					<Button
 						type="submit"
@@ -154,7 +161,8 @@ const mapDispatchToProps = dispatch => ({
 			doPlaceOrderRequest(
 				data['number-of-shares'],
 				data['asset-id'],
-				data['usdx-amount'],
+				data['limit-price'],
+				data['side'],
 				params,
 			),
 		)

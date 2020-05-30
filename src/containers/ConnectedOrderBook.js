@@ -1,12 +1,17 @@
 import { connect } from 'react-redux'
 import OrderBook from '../components/OrderBook'
-import { getAsks, getBids, getHighestBid, getLowestAsk } from '../reducers'
+import {
+	getAsks,
+	getBids,
+	getHighestAsk,
+	getLowestBid,
+} from '../reducers'
 
 const mapStateToProps = state => ({
 	bids: getBids(state),
 	asks: getAsks(state),
-	highestBid: getHighestBid(state),
-	lowestAsk: getLowestAsk(state)
+	highestAsk: getHighestAsk(state),
+	lowestBid: getLowestBid(state),
 })
 
 const mapDispatchToProps = dispatch => ({})

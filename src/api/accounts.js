@@ -22,7 +22,6 @@ const create = async ({ username, password }) => {
 const login = async privateKey => {
 	try {
 		const url = `${ACCOUNTS}/${privateKey}`
-		console.log(url)
 		return await axios.get(url)
 	} catch (error) {
 		if (error.message.includes(NOT_FOUND)) {

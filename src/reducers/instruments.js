@@ -37,10 +37,12 @@ const applyInstrumentsFetchSucceeded = (state, action) => ({
 	instruments: action.response.data.instruments,
 })
 
-const applyInstrumentBidsAsksFetchSucceeded = (state, action) => ({
-	...state,
-	selectedInstrument: action.response.data.instrument,
-})
+const applyInstrumentBidsAsksFetchSucceeded = (state, action) => {
+	return {
+		...state,
+		selectedInstrument: action.response.data.instrument,
+	}
+}
 
 // GETTERS
 export const getInstruments = state => {
@@ -49,8 +51,6 @@ export const getInstruments = state => {
 
 export const getInstrument = state => {
 	state.instruments.instruments.map(instrument => {
-		console.log(instrument)
-		console.log(state.instruments.selectedInstrumentId)
 		if (
 			instrument.id === state.instruments.selectedInstrumentId
 		) {
@@ -71,10 +71,10 @@ export const getBids = state => getSelectedInstrument(state).bids
 
 export const getAsks = state => getSelectedInstrument(state).asks
 
-export const getHighestBid = state =>
-	getSelectedInstrument(state).highestBid
+export const getHighestAsk = state =>
+	getSelectedInstrument(state).highestAsk
 
-export const getLowestAsk = state =>
-	getSelectedInstrument(state).lowestAsk
+export const getLowestBid = state =>
+	getSelectedInstrument(state).lowestBid
 
 export default instruments

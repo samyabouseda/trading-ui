@@ -56,6 +56,12 @@ export const doInstrumentBidsAsksFetchSuccess = response => ({
 	response,
 })
 
+export const doInstrumentBidsAsksFetchFailure = error => ({
+	type: ActionTypes.INSTRUMENTS_FETCH_FAILURE,
+	errorMessage:
+		error.message || 'Could not complete fiat purchase.',
+})
+
 // FIAT
 export const doFiatPurchaseRequest = (amount, privateKey) => ({
 	type: ActionTypes.FIAT_PURCHASE_REQUEST,
@@ -94,13 +100,15 @@ export const doFiatDepositFailure = error => ({
 export const doPlaceOrderRequest = (
 	numberOfShares,
 	assetId,
-	usdxAmount,
+	limitPrice,
+	side,
 	privateKey,
 ) => ({
 	type: ActionTypes.PLACE_ORDER_REQUEST,
 	numberOfShares,
 	assetId,
-	usdxAmount,
+	limitPrice,
+	side,
 	privateKey,
 })
 

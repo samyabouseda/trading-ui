@@ -22,6 +22,6 @@ export {
 	getSelectedInstrument,
 	getAsks,
 	getBids,
-	getHighestBid,
-	getLowestAsk,
+	getHighestAsk,
+	getLowestBid,
 } from './instruments'

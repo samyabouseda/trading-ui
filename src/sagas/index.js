@@ -8,6 +8,7 @@ import {
 	doUserLoginFailure,
 	doInstrumentsFetchSuccess,
 	doInstrumentBidsAsksFetchSuccess,
+	doInstrumentBidsAsksFetchFailure,
 	doFiatPurchaseSuccess,
 	doFiatPurchaseFailure,
 	doFiatDepositSuccess,
@@ -77,6 +78,7 @@ function* requestAvailableInstruments(action) {
 }
 
 function* requestSelectedInstrumentBidAskPrices(action) {
+	console.log(action)
 	try {
 		const response = yield call(
 			API.instruments.getById,
@@ -84,7 +86,7 @@ function* requestSelectedInstrumentBidAskPrices(action) {
 		)
 		yield put(doInstrumentBidsAsksFetchSuccess(response))
 	} catch (error) {
-		// TODO: yield put (doInstrumentBidsAsksFetchFailure(error))
+		yield put(doInstrumentBidsAsksFetchFailure(error))
 	}
 }
 
@@ -122,7 +124,8 @@ function* requestPlaceOrder(action) {
 		const data = {
 			numberOfShares: action.numberOfShares,
 			assetId: action.assetId,
-			usdxAmount: action.usdxAmount,
+			side: action.side,
+			limitPrice: action.limitPrice,
 			privateKey: action.privateKey,
 		}
 		const response = yield call(API.orders.placeOrder, data)

@@ -50,17 +50,17 @@ export const getInstruments = state => {
 }
 
 export const getInstrument = state => {
-	state.instruments.instruments.map(instrument => {
-		if (
-			instrument.id === state.instruments.selectedInstrumentId
-		) {
-			return instrument
-		}
-	})
+	// state.instruments.instruments.map(instrument => {
+	// 	if (
+	// 		instrument.id === state.instruments.selectedInstrumentId
+	// 	) {
+	// 		return instrument
+	// 	}
+	// })
 	return {
 		...state.instruments.instruments[0],
-		highestBid: state.instruments.selectedInstrument.highestBid,
-		lowestAsk: state.instruments.selectedInstrument.lowestAsk,
+		highestAsk: state.instruments.selectedInstrument.highestAsk,
+		lowestBid: state.instruments.selectedInstrument.lowestBid,
 	}
 }
 

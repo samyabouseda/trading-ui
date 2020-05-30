@@ -13,10 +13,10 @@ class OrderForm extends Component {
 		super(props)
 		this.state = {
 			marketSideIsBuy: true,
-			assetPricePerShare: props.instrument.highestBid,
+			assetPricePerShare: props.instrument.highestAsk,
 			numberOfShares: DEFAULT_NB_OF_SHARES,
 			usdxAmount:
-				props.instrument.highestBid * DEFAULT_NB_OF_SHARES,
+				props.instrument.highestAsk * DEFAULT_NB_OF_SHARES,
 		}
 	}
 
@@ -111,8 +111,8 @@ class OrderForm extends Component {
 		this.setState((prevState, props) => {
 			const marketSideIsBuy = !prevState.marketSideIsBuy
 			const assetPricePerShare = marketSideIsBuy
-				? instrument.highestBid
-				: instrument.lowestAsk
+				? instrument.highestAsk
+				: instrument.lowestBid
 			const usdxAmount =
 				prevState.numberOfShares * assetPricePerShare
 			return { marketSideIsBuy, assetPricePerShare, usdxAmount }
@@ -142,8 +142,8 @@ const Info = ({ instrument, marketSideIsBuy }) => (
 			<p className={styles.title}>
 				$
 				{marketSideIsBuy
-					? instrument.highestBid
-					: instrument.lowestAsk}
+					? instrument.highestAsk
+					: instrument.lowestBid}
 			</p>
 			<p className={styles['sub-title']}>Price per share</p>
 		</div>

@@ -1,0 +1,40 @@
+.spread-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	border-top: solid 1px #242535;
+	border-bottom: solid 1px #242535;
+}
+
+.spread-item {
+	flex: 1;
+	color: white;
+	font-size: 0.8em;
+	font-weight: 500;
+}
+
+.spread-item:last-child {
+	text-align: right;
+}
+
+.sub-title {
+	height: 0;
+	color: gray;
+	font-weight: bold;
+	font-size: 0.8em;
+	margin: 0 0 0.25em;
+	padding: 0;
+}
+
+.title {
+	font-weight: 700;
+	margin: 0.25em 0;
+	padding: 0;
+}
+
+.info {
+	margin: 2em 0;
+	display: flex;
+	justify-content: space-between;
+}

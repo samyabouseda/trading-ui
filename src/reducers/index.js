@@ -9,11 +9,19 @@ const createRootReducer = history =>
 		router: connectRouter(history),
 		user,
 		errorMessage,
-		instruments
+		instruments,
 	})
 
 export default createRootReducer
 
 export { getErrorMessage } from './errorMessage'
 export { getUser, getSuccessMessage } from './user'
-export { getInstruments, getSelectedInstrument, getAsks, getBids, getHighestBid, getLowestAsk } from './instruments'
+export {
+	getInstruments,
+	getInstrument,
+	getSelectedInstrument,
+	getAsks,
+	getBids,
+	getHighestBid,
+	getLowestAsk,
+} from './instruments'

@@ -78,7 +78,6 @@ function* requestAvailableInstruments(action) {
 }
 
 function* requestSelectedInstrumentBidAskPrices(action) {
-	console.log(action)
 	try {
 		const response = yield call(
 			API.instruments.getById,

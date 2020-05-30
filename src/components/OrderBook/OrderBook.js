@@ -1,9 +1,40 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styles from './OrderBook.module.css'
 import DashboardCard from '../DashboardCard'
 import Table, { TableHeader, TableRow } from '../Table'
 
-const OrderBook = ({ bids, asks, highestAsk, lowestBid }) => {
+function useInterval(callback, delay) {
+	const savedCallback = useRef()
+
+	// Remember the latest callback.
+	useEffect(() => {
+		savedCallback.current = callback
+	}, [callback])
+
+	// Set up the interval.
+	useEffect(() => {
+		function tick() {
+			savedCallback.current()
+		}
+		if (delay !== null) {
+			let id = setInterval(tick, delay)
+			return () => clearInterval(id)
+		}
+	}, [delay])
+}
+
+const OrderBook = ({
+	bids,
+	asks,
+	highestAsk,
+	lowestBid,
+	instrumentId,
+	dispatchFetchRequest,
+}) => {
+	useInterval(() => {
+		dispatchFetchRequest(instrumentId)
+	}, 5000)
+
 	return (
 		<DashboardCard title={'Order Book'}>
 			{_renderBids(bids)}

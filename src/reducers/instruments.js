@@ -67,6 +67,9 @@ export const getInstrument = state => {
 export const getSelectedInstrument = state =>
 	state.instruments.selectedInstrument
 
+export const getSelectedInstrumentId = state =>
+	state.instruments.selectedInstrumentId
+
 export const getBids = state => getSelectedInstrument(state).bids
 
 export const getAsks = state => getSelectedInstrument(state).asks

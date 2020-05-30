@@ -24,4 +24,5 @@ export {
 	getBids,
 	getHighestAsk,
 	getLowestBid,
+	getSelectedInstrumentId,
 } from './instruments'

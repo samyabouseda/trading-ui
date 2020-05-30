@@ -44,10 +44,7 @@ const getAll = async () => {
 const getById = async instrumentId => {
 	try {
 		const url = `${SERVICE_URL}${instrumentId}`
-		// TODO: Replace hardcoded response with real request.
-		// console.log('Requesting bids and asks')
 		const response = await axios.get(url)
-		// console.log(response)
 		// return {
 		// 	data: {
 		// 		instrument: {

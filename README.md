@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Trading UI 
+
+The trading UI used for the decentralized trading platform based on Ethereum.
+
+![Trading UI](https://s3.eu-central-1.amazonaws.com/ch.abouseda.samy.images/trading-ui.png)
 
 ## Available Scripts
 
